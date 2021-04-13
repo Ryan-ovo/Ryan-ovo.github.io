@@ -1,22 +1,126 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://Ryan-ovo.github.io</id>
-    <title>Gridea</title>
-    <updated>2021-04-13T06:09:27.819Z</updated>
-    <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://Ryan-ovo.github.io"/>
-    <link rel="self" href="https://Ryan-ovo.github.io/atom.xml"/>
-    <subtitle>温故而知新</subtitle>
-    <logo>https://Ryan-ovo.github.io/images/avatar.png</logo>
-    <icon>https://Ryan-ovo.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2021, Gridea</rights>
-    <entry>
-        <title type="html"><![CDATA[LeetCode题型总结]]></title>
-        <id>https://Ryan-ovo.github.io/post/leetcode-ti-xing-zong-jie/</id>
-        <link href="https://Ryan-ovo.github.io/post/leetcode-ti-xing-zong-jie/">
-        </link>
-        <updated>2021-04-13T06:06:55.000Z</updated>
-        <content type="html"><![CDATA[<h3 id="目录">目录</h3>
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>LeetCode题型总结 | Gridea</title>
+<link rel="shortcut icon" href="https://Ryan-ovo.github.io/favicon.ico?v=1618294144235">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://Ryan-ovo.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="LeetCode题型总结 | Gridea - Atom Feed" href="https://Ryan-ovo.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="目录
+
+1.二分
+
+1.1 索引二分
+1.2 值域二分
+
+
+2.链表
+3.数组
+4.树
+5.Trie树（字典树）
+6.堆
+7.栈、队列
+
+7.1 转换
+7.2 单调栈
+7.3 单调队列
+7.4 逆波兰表达式/计算器
+7.5 括号序列
+
+
+8..." />
+    <meta name="keywords" content="Algorithm" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://Ryan-ovo.github.io">
+  <img class="avatar" src="https://Ryan-ovo.github.io/images/avatar.png?v=1618294144235" alt="">
+  </a>
+  <h1 class="site-title">
+    Gridea
+  </h1>
+  <p class="site-description">
+    温故而知新
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/Ryan-ovo" target="_blank">
+          <i class="ri-github-line"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              LeetCode题型总结
+            </h2>
+            <div class="post-info">
+              <span>
+                2021-04-13
+              </span>
+              <span>
+                22 min read
+              </span>
+              
+                <a href="https://Ryan-ovo.github.io/tag/StbrKBjtt/" class="post-tag">
+                  # Algorithm
+                </a>
+              
+            </div>
+            
+              <img class="post-feature-image" src="https://Ryan-ovo.github.io/post-images/leetcode-ti-xing-zong-jie.JPG" alt="">
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <h3 id="目录">目录</h3>
 <ul>
 <li>1.二分
 <ul>
@@ -761,1370 +865,170 @@
 <li><a href="https://leetcode-cn.com/problems/minimum-numbers-of-function-calls-to-make-target-array/">LeetCode1558. 得到目标数组的最少函数调用次数</a>（贪心，模拟/位运算）</li>
 <li><a href="https://leetcode-cn.com/problems/detect-cycles-in-2d-grid/">LeetCode1559. 二维网格图中探测环</a>（并查集）</li>
 </ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[基础算法代码模板]]></title>
-        <id>https://Ryan-ovo.github.io/post/ji-chu-suan-fa-dai-ma-mo-ban/</id>
-        <link href="https://Ryan-ovo.github.io/post/ji-chu-suan-fa-dai-ma-mo-ban/">
-        </link>
-        <updated>2021-04-13T05:13:56.000Z</updated>
-        <content type="html"><![CDATA[<h3 id="排序算法">排序算法</h3>
-<h4 id="快速排序">快速排序</h4>
-<pre><code class="language-c++">// 时间复杂度：O(nlogn)
-void quick_sort(int l, int r){
-    if(l == r) return;
-    int x = q[(l + r) &gt;&gt; 1], i = l - 1, j = r + 1;
-    while(i &lt; j){
-        while(q[++i] &lt; x);
-        while(q[--j] &gt; x);
-        if(i &lt; j) swap(q[i], q[j]);
-    }
-    quick_sort(l, j);
-    quick_sort(j + 1, r);
-}
-</code></pre>
-<h4 id="快速选择">快速选择</h4>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
 <ul>
-<li>选出第k小的元素</li>
-</ul>
-<pre><code class="language-c++">// 时间复杂度：O(n)
-int quick_sort(int l, int r, int k){
-    if(l == r) return q[l];
-    int x = q[(l + r) &gt;&gt; 1], i = l - 1, j = r + 1;
-    while(i &lt; j){
-        while(q[++i] &lt; x);
-        while(q[--j] &gt; x);
-        if(i &lt; j) swap(q[i], q[j]);
-    }
-    int sl = j - l + 1;
-    if(sl &gt;= k) return quick_sort(l, j, k);
-    return quick_sort(j + 1, r, k - sl);
-}
-</code></pre>
-<h4 id="归并排序">归并排序</h4>
-<pre><code class="language-java">void merge_sort(int[] q, int l, int r){
-    if(l &gt;= r) return;
-    int mid = l + r &gt;&gt; 1;
-    merge_sort(q, l, mid);
-    merge_sort(q, mid + 1, r);
-    int[] t = new int[r - l + 1];
-    int i = l, j = mid + 1, k = 0;
-    while(i &lt;= mid &amp;&amp; j &lt;= r){
-        if(q[i] &lt;= q[j]) t[k++] = q[i++];
-        else t[k++] = q[j++];
-    } 
-    while(i &lt;= mid) t[k++] = q[i++];
-    while(j &lt;= r) t[k++] = q[j++];
-    k = 0;
-    for(i = l; i &lt;= r; i++){
-        q[i] = t[k++];
-    }
-}
-</code></pre>
-<h4 id="求逆序对数量">求逆序对数量</h4>
+<li>
 <ul>
-<li>归并排序的应用</li>
-</ul>
-<pre><code class="language-java">void merge_sort(int[] q, int l, int r){
-    if(l &gt;= r) return;
-    int mid = l + r &gt;&gt; 1;
-    merge_sort(q, l, mid);
-    merge_sort(q, mid + 1, r);
-    int[] t = new int[r - l + 1];
-    int i = l, j = mid + 1, k = 0;
-    while(i &lt;= mid &amp;&amp; j &lt;= r){
-        if(q[i] &lt;= q[j]) t[k++] = q[i++];
-        else {
-            res += mid - i + 1;
-            t[k++] = q[j++];
-        }
-    } 
-    while(i &lt;= mid) t[k++] = q[i++];
-    while(j &lt;= r) t[k++] = q[j++];
-    k = 0;
-    for(i = l; i &lt;= r; i++){
-        q[i] = t[k++];
-    }
-}
-</code></pre>
-<h4 id="堆排序">堆排序</h4>
+<li><a href="#%E7%9B%AE%E5%BD%95">目录</a></li>
+<li><a href="#1%E4%BA%8C%E5%88%86">1.二分</a>
 <ul>
-<li>节点<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>u</mi></mrow><annotation encoding="application/x-tex">u</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">u</span></span></span></span>的左儿子为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn><mi>u</mi></mrow><annotation encoding="application/x-tex">2u</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span><span class="mord mathdefault">u</span></span></span></span>, 右儿子为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn><mi>u</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">2u+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">2</span><span class="mord mathdefault">u</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span></li>
-<li>插入一个数：<code>h[++cnt] = x; up(cnt);</code></li>
-<li>求堆顶：<code>h[1]</code></li>
-<li>删除堆顶：<code>h[1] = h[cnt--]; down(1)</code></li>
+<li><a href="#11-%E7%B4%A2%E5%BC%95%E4%BA%8C%E5%88%86">1.1 索引二分</a></li>
+<li><a href="#12-%E5%80%BC%E5%9F%9F%E4%BA%8C%E5%88%86">1.2 值域二分</a></li>
 </ul>
-<pre><code class="language-java">// 初始化
-int[] nums; //原数组
-int[] h; //下标从1开始
-int cnt; // 堆中的元素个数
-
-// 第一种初始化方式：O(n)
-cnt = n;
-for(int i = 1; i &lt;= n; i++) h[i] = nums[i - 1];
-for(int i = n / 2; i &gt;= 1; i--) down(i);
-
-//第二种初始化方式：O(nlogn)
-for(int i = 0; i &lt; n; i++){
-    h[++cnt] = nums[i];
-    up(cnt);
-}
-
-// 记录排序结果
-for(int i = 0; i &lt; n; i++){
-    res[i] = h[1]; //获取堆顶
-    h[1] = h[cnt--]; //删除堆顶
-    down(1); //堆顶下沉
-}
-
-// down函数
-void down(int u){
-    int k = u; //k记录当前节点u与左右儿子中的最小点
-    if(u * 2 &lt;= cnt &amp;&amp; h[u * 2] &lt; h[k]) k = u * 2;
-    if(u * 2 + 1 &lt;= cnt &amp;&amp; h[u * 2 + 1] &lt; h[k]) k = u * 2 + 1;
-    if(u != k){
-        int t = h[k];
-        h[k] = h[u];
-        h[u] = t;
-        down(t); //下沉最小点直到无法下沉
-    } 
-}
-
-//up函数
-void up(int u){
-    while(u / 2 &gt;= 1 &amp;&amp; h[u] &lt; h[u / 2]){
-        int t = h[u];
-        h[u] = h[u / 2];
-        h[u / 2] = t;
-        u /= 2;
-    }
-}
-</code></pre>
-<h3 id="矩阵">矩阵</h3>
-<h4 id="矩阵旋转">矩阵旋转</h4>
+</li>
+<li><a href="#2%E9%93%BE%E8%A1%A8">2.链表</a></li>
+<li><a href="#3%E6%95%B0%E7%BB%84">3.数组</a></li>
+<li><a href="#4%E6%A0%91">4.树</a></li>
+<li><a href="#5trie%E6%A0%91%E5%AD%97%E5%85%B8%E6%A0%91">5.Trie树(字典树)</a></li>
+<li><a href="#6%E5%A0%86">6.堆</a></li>
+<li><a href="#7%E6%A0%88-%E9%98%9F%E5%88%97">7.栈、队列</a>
 <ul>
-<li>顺时针旋转90°：先沿主对角线翻转，然后从中间水平翻转</li>
-<li>逆时针旋转90°：先沿主对角线翻转，然后从中间上下翻转</li>
-<li>顺时针旋转180°/逆时针旋转180°：先沿主对角线翻转，再沿副对角线翻转</li>
+<li><a href="#71-%E8%BD%AC%E6%8D%A2">7.1 转换</a></li>
+<li><a href="#72-%E5%8D%95%E8%B0%83%E6%A0%88">7.2 单调栈</a></li>
+<li><a href="#73-%E5%8D%95%E8%B0%83%E9%98%9F%E5%88%97">7.3 单调队列</a></li>
+<li><a href="#74-%E9%80%86%E6%B3%A2%E5%85%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%AE%A1%E7%AE%97%E5%99%A8">7.4 逆波兰表达式/计算器</a></li>
+<li><a href="#75-%E6%8B%AC%E5%8F%B7%E5%BA%8F%E5%88%97">7.5 括号序列</a></li>
 </ul>
-<pre><code class="language-c++">// 以顺时针旋转90°为例
-// 两种选择方式任选其一
-// 选中矩阵主对角线左下方的区域
-for(int i = 0; i &lt; n; i++){
-    for(int j = 0; j &lt; i; j++){
-        swap(a[i][j], a[j][i]);
-    }
-}
+</li>
+<li><a href="#8%E5%8F%8C%E6%8C%87%E9%92%88">8.双指针</a>
+<ul>
+<li><a href="#81-%E5%90%8C%E5%90%91%E5%8F%8C%E6%8C%87%E9%92%88">8.1 同向双指针</a></li>
+<li><a href="#82-%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3">8.2 滑动窗口</a></li>
+<li><a href="#83-%E9%80%86%E5%90%91%E5%8F%8C%E6%8C%87%E9%92%88">8.3 逆向双指针</a></li>
+</ul>
+</li>
+<li><a href="#9%E5%93%88%E5%B8%8C%E8%A1%A8">9.哈希表</a></li>
+<li><a href="#10%E4%BD%8D%E8%BF%90%E7%AE%97">10.位运算</a></li>
+<li><a href="#11%E6%8E%92%E5%BA%8F">11.排序</a></li>
+<li><a href="#12%E6%95%B0%E5%AD%A6">12.数学</a></li>
+<li><a href="#13%E6%90%9C%E7%B4%A2">13.搜索</a>
+<ul>
+<li><a href="#131-dfs">13.1 DFS</a></li>
+<li><a href="#132-bfs">13.2 BFS</a></li>
+</ul>
+</li>
+<li><a href="#14%E8%B4%AA%E5%BF%83">14.贪心</a>
+<ul>
+<li><a href="#141-%E5%8C%BA%E9%97%B4%E7%B1%BB%E8%B4%AA%E5%BF%83">14.1 区间类贪心</a></li>
+</ul>
+</li>
+<li><a href="#15%E5%88%86%E6%B2%BB">15.分治</a></li>
+<li><a href="#16%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92">16.动态规划</a>
+<ul>
+<li><a href="#161-%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98">16.1 背包问题</a>
+<ul>
+<li><a href="#1611-01%E8%83%8C%E5%8C%85">16.1.1 01背包</a></li>
+<li><a href="#1612-%E5%AE%8C%E5%85%A8%E8%83%8C%E5%8C%85">16.1.2 完全背包</a></li>
+<li><a href="#1613-%E4%BA%8C%E7%BB%B4%E8%B4%B9%E7%94%A8%E8%83%8C%E5%8C%85">16.1.3 二维费用背包</a></li>
+<li><a href="#1614-%E6%B1%82%E5%85%B7%E4%BD%93%E6%96%B9%E6%A1%88">16.1.4 求具体方案</a></li>
+</ul>
+</li>
+<li><a href="#162-lis%E6%A8%A1%E5%9E%8B">16.2 LIS模型</a></li>
+<li><a href="#163-%E7%BA%BF%E6%80%A7dp">16.3 线性DP</a></li>
+<li><a href="#164-%E5%8C%BA%E9%97%B4dp">16.4 区间DP</a></li>
+<li><a href="#165-%E6%A0%91%E5%BD%A2dp">16.5 树形DP</a></li>
+<li><a href="#166-%E8%AE%B0%E5%BF%86%E5%8C%96%E6%90%9C%E7%B4%A2">16.6 记忆化搜索</a></li>
+<li><a href="#167-%E7%8A%B6%E6%80%81%E6%9C%BAdp">16.7 状态机DP</a></li>
+<li><a href="#168-%E7%8A%B6%E5%8E%8Bdp">16.8 状压DP</a></li>
+</ul>
+</li>
+<li><a href="#17%E5%9B%BE%E8%AE%BA">17.图论</a></li>
+<li><a href="#18%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84">18.树状数组</a></li>
+<li><a href="#19%E8%93%84%E6%B0%B4%E6%B1%A0%E6%8A%BD%E6%A0%B7">19.蓄水池抽样</a></li>
+<li><a href="#20%E5%AD%97%E7%AC%A6%E4%B8%B2">20.字符串</a></li>
+<li><a href="#leetcode%E7%AC%AC30%E5%9C%BA%E5%8F%8C%E5%91%A8%E8%B5%9B">LeetCode第30场双周赛</a></li>
+<li><a href="#leetcode%E7%AC%AC192%E5%9C%BA%E5%91%A8%E8%B5%9B">LeetCode第192场周赛</a></li>
+<li><a href="#leetcode%E7%AC%AC217%E5%9C%BA%E5%91%A8%E8%B5%9B">LeetCode第217场周赛</a></li>
+<li><a href="#leetcode%E7%AC%AC218%E5%9C%BA%E5%91%A8%E8%B5%9B">LeetCode第218场周赛</a></li>
+<li><a href="#leetcode%E7%AC%AC219%E5%9C%BA%E5%91%A8%E8%B5%9B">LeetCode第219场周赛</a></li>
+<li><a href="#leetcode%E7%AC%AC220%E5%9C%BA%E5%91%A8%E8%B5%9B">LeetCode第220场周赛</a></li>
+<li><a href="#leetcode%E7%AC%AC221%E5%9C%BA%E5%91%A8%E8%B5%9B">LeetCode第221场周赛</a></li>
+<li><a href="#leetcode%E7%AC%AC222%E5%9C%BA%E5%91%A8%E8%B5%9B">LeetCode第222场周赛</a></li>
+<li><a href="#leetcode%E7%AC%AC223%E5%9C%BA%E5%91%A8%E8%B5%9B">LeetCode第223场周赛</a></li>
+<li><a href="#leetcode%E7%AC%AC224%E5%9C%BA%E5%91%A8%E8%B5%9B">LeetCode第224场周赛</a></li>
+<li><a href="#%E7%AC%AC45%E5%9C%BA%E5%8F%8C%E5%91%A8%E8%B5%9B">第45场双周赛</a></li>
+<li><a href="#%E7%AC%AC228%E5%9C%BA%E5%91%A8%E8%B5%9B">第228场周赛</a></li>
+<li><a href="#%E7%AC%AC229%E5%9C%BA%E5%91%A8%E8%B5%9B">第229场周赛</a></li>
+<li><a href="#%E7%AC%AC230%E5%9C%BA%E5%91%A8%E8%B5%9B">第230场周赛</a></li>
+<li><a href="#%E7%AC%AC31%E5%9C%BA%E5%8F%8C%E5%91%A8%E8%B5%9B">第31场双周赛</a></li>
+<li><a href="#%E7%AC%AC33%E5%9C%BA%E5%8F%8C%E5%91%A8%E8%B5%9B">第33场双周赛</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
-// 选中矩阵主对角线右上方的区域
-for(int i = 0; i &lt; n; i++){
-    for(int j = i + 1; j &lt; n; j++){
-        swap(a[i][j], a[j][i]);
-    }
-}
+              </div>
+            </div>
+          </article>
+        </div>
 
-// 沿对称轴左右翻转
-for(int i = 0; i &lt; n; i++){
-    for(int j = 0, k = n - 1; j &lt; k; j++, k--){
-        swap(a[i][j], a[i][k]);
-    }
-}
-</code></pre>
-<h3 id="字符串处理">字符串处理</h3>
-<h4 id="左旋转k位">左旋转k位</h4>
-<pre><code class="language-c++">// k = 2, abcdefg -&gt; gfedcab
-string reverseLeftWords(string s, int k) {
-    int n = s.size();
-    reverse(s.begin(), s.end());
-    reverse(s.begin(), s.begin() + n - k);
-    reverse(s.begin() + n - k, s.end());
-    return s;
-}
-</code></pre>
-<h3 id="高精度">高精度</h3>
-<h4 id="高精度加法">高精度加法</h4>
-<pre><code class="language-java">class Solution {
-    public String addStrings(String a, String b) {
-        int i = a.length()-1, j = b.length()-1, carry = 0;
-        StringBuilder res = new StringBuilder();
-        while(i &gt;= 0 || j &gt;= 0 || carry != 0){
-            int n = 0, m = 0;
-            if(i &gt;= 0) n = a.charAt(i) - '0';
-            if(j &gt;= 0) m = b.charAt(j) - '0';
-            int add = n + m + carry;
-            res.append(add % 10);
-            carry = add / 10;
-            i--; j--;
-        }
-        return res.reverse().toString();
-    }
-}
-</code></pre>
-<h4 id="高精度乘法">高精度乘法</h4>
-<pre><code class="language-java">class Solution {
-    public String multiply(String num1, String num2) {
-        int n = num1.length(), m = num2.length();
-        int[] a = new int[n];
-        int[] b = new int[m];
-        for(int i = n-1; i &gt;= 0; i--) a[n-i-1] = num1.charAt(i) - '0';
-        for(int i = m-1; i &gt;= 0; i--) b[m-i-1] = num2.charAt(i) - '0';
-        int[] c = new int[n + m];
-        for(int i = 0; i &lt; n; i++){
-            for(int j = 0; j &lt; m; j++){
-                c[i+j] += a[i] * b[j];
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://Ryan-ovo.github.io/post/ji-chu-suan-fa-dai-ma-mo-ban/">
+              <h3 class="post-title">
+                基础算法代码模板
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://Ryan-ovo.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
             }
-        }
-        int carry = 0;
-        for(int i = 0; i &lt; n + m - 1 || carry != 0; i++){
-            int t = c[i] + carry;
-            c[i] =  t % 10;
-            carry = t / 10;
-        }
-        int k = n + m - 1;
-        while(k &gt; 0 &amp;&amp; c[k] == 0) k--;
-        StringBuilder res = new StringBuilder();
-        while(k &gt;= 0) res.append(c[k--]);
-        return res.toString();
-    }
-}
-</code></pre>
-<h3 id="链表">链表</h3>
-<h4 id="反转链表">反转链表</h4>
-<ul>
-<li>非递归</li>
-</ul>
-<pre><code class="language-java">// 整条反转
-public ListNode reverseList(ListNode head) {
-    if(head == null || head.next == null) return head;
-    ListNode a = head, b = a.next;
-    while(b != null){
-        ListNode c = b.next;
-        b.next = a;
-        a = b;
-        b = c;
-    }
-    head.next = null;
-    return a;
-}
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
 
-// 反转中间一段m-n
-// [1, 2, 3, 4, 5], m = 2, n = 4, [1, 4, 3, 2, 5]
-public ListNode reverseBetween(ListNode head, int m, int n) {
-    ListNode dummy = new ListNode(0);
-    dummy.next = head;
-    ListNode o = dummy;
-    for(int i = 0; i &lt; m-1; i++) o = o.next;
-    ListNode a = o.next;
-    ListNode b = a.next;
-    for(int i = 0; i &lt; n-m; i++){
-        ListNode c = b.next;
-        b.next = a;
-        a = b;
-        b = c;
-    }
-    o.next.next = b;
-    o.next = a;
-    return dummy.next;
-}
-</code></pre>
-<ul>
-<li>递归</li>
-</ul>
-<pre><code class="language-java">class Solution {
-    public ListNode reverseList(ListNode head) {
-        if(head == null || head.next == null) return head;
-        ListNode p = reverseList(head.next);
-        head.next.next = head;
-        head.next = null;
-        return p;
-    }
-}
-</code></pre>
-<h4 id="两个一组反转">两个一组反转</h4>
-<pre><code class="language-java">public ListNode swapPairs(ListNode head) {
-    ListNode dummy = new ListNode(0);
-    dummy.next = head;
-    ListNode cur = dummy;
-    while(cur.next != null &amp;&amp; cur.next.next != null){
-        ListNode a = cur.next, b = a.next;
-        a.next = b.next;
-        b.next = a;
-        cur.next = b;
-        cur = a;
-    }
-    return dummy.next;
-}
-</code></pre>
-<h4 id="k个一组反转">k个一组反转</h4>
-<pre><code class="language-java">public ListNode reverseKGroup(ListNode head, int k) {
-    ListNode dummy = new ListNode(0);
-    dummy.next = head;
-    ListNode cur = dummy;
-    int n = 0;
-    for(ListNode p = head; p != null; p = p.next) n++;
-    for(int i = 0; i &lt; n / k; i++){
-        ListNode a = cur.next, b = a.next;
-        for(int j = 0; j &lt; k - 1; j++){
-            ListNode c = b.next;
-            b.next = a;
-            a = b;
-            b = c;
-        }
-        ListNode t = cur.next;
-        cur.next.next = b;
-        cur.next = a;
-        cur = t;
-    }
-    return dummy.next;
-}
-</code></pre>
-<h4 id="排序两个有序链表">排序两个有序链表</h4>
-<pre><code class="language-java">class Solution {
-    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
-        ListNode dummy = new ListNode(0);
-        ListNode cur = dummy;
-        while(l1 != null &amp;&amp; l2 != null){
-            if(l1.val &lt;= l2.val){
-                cur = cur.next = l1;
-                l1 = l1.next;
-            }else{
-                cur = cur.next = l2;
-                l2 = l2.next;
-            }
-        }
-        if(l1 != null) cur.next = l1;
-        else cur.next = l2;
-        return dummy.next;
-    }
-}
-</code></pre>
-<h4 id="合并k个有序链表">合并k个有序链表</h4>
-<pre><code class="language-java">class Solution {
-    public ListNode mergeKLists(ListNode[] lists) {
-        int n = lists.length;
-        PriorityQueue&lt;ListNode&gt; heap = new PriorityQueue&lt;&gt;((o1, o2) -&gt; o1.val - o2.val);
-        for(ListNode node: lists) {
-            if(node != null) heap.offer(node);
-        }
-        ListNode dummy = new ListNode(0);
-        ListNode cur = dummy;
-        while(heap.size() &gt; 0){
-            ListNode t = heap.poll();
-            cur = cur.next = t;
-            if(t.next != null) heap.offer(t.next);
-        }
-        return dummy.next;
-    }
-}
-</code></pre>
-<h4 id="删除重复节点保留一个">删除重复节点(保留一个)</h4>
-<ul>
-<li>头节点一定不会被删除，所以不需要虚拟头节点</li>
-</ul>
-<pre><code class="language-java">public ListNode deleteDuplicates(ListNode head) {
-    ListNode cur = head;
-    while(cur != null &amp;&amp; cur.next != null){
-        if(cur.val == cur.next.val){
-            cur.next = cur.next.next;
-        }else{
-            cur = cur.next;
-        }
-    }
-    return head;
-}
-</code></pre>
-<h4 id="删除重复节点">删除重复节点</h4>
-<ul>
-<li>头节点可能会被删除，需要虚拟头节点</li>
-</ul>
-<pre><code class="language-java">class Solution {
-    public ListNode deleteDuplicates(ListNode head) {
-        ListNode dummy = new ListNode(0);
-        dummy.next = head;
-        ListNode cur = dummy;
-        while(cur.next != null){
-            ListNode p = cur.next;
-            while(p.next != null &amp;&amp; p.next.val == p.val) p = p.next;
-            if(cur.next == p){
-                cur = cur.next;
-            }else{
-                cur.next = p.next;
-            }
-        }
-        return dummy.next;
-    }
-}
-</code></pre>
-<h3 id="树">树</h3>
-<h4 id="层序遍历">层序遍历</h4>
-<pre><code class="language-java">public List&lt;List&lt;Integer&gt;&gt; levelOrder(TreeNode root) {
-    List&lt;List&lt;Integer&gt;&gt; res = new ArrayList&lt;&gt;();
-    List&lt;Integer&gt; list = new ArrayList&lt;&gt;();
-    if(root == null) return res;
-    Queue&lt;TreeNode&gt; q = new LinkedList&lt;&gt;();
-    q.offer(root);
-    while(q.size() != 0){
-        int cnt = q.size();
-        while(cnt-- &gt; 0){
-            TreeNode t = q.poll();
-            list.add(t.val);
-            if(t.left != null) q.offer(t.left);
-            if(t.right != null) q.offer(t.right);
-        }
-        res.add(new ArrayList&lt;&gt;(list));
-        list.clear();
-    }
-    return res;
-}
-</code></pre>
-<h4 id="前序遍历">前序遍历</h4>
-<pre><code class="language-java">// 根左右
-public List&lt;Integer&gt; preorderTraversal(TreeNode root) {
-    List&lt;Integer&gt; res = new ArrayList&lt;&gt;();
-    Deque&lt;TreeNode&gt; stk = new ArrayDeque&lt;&gt;();
-    while(stk.size() &gt; 0 || root != null){
-        while(root != null){
-            stk.push(root);
-            res.add(root.val);
-            root = root.left;
-        }
-        root = stk.pop();
-        root = root.right;
-    }
-    return res;
-}
-</code></pre>
-<h4 id="中序遍历">中序遍历</h4>
-<pre><code class="language-java">// 左根右
-public List&lt;Integer&gt; inorderTraversal(TreeNode root) {
-    List&lt;Integer&gt; res = new ArrayList&lt;&gt;();
-    Deque&lt;TreeNode&gt; stk = new ArrayDeque&lt;&gt;();
-    while(stk.size() &gt; 0 || root != null){
-        while(root != null){
-            stk.push(root);
-            root = root.left;
-        }
-        root = stk.pop();
-        res.add(root.val);
-        root = root.right;
-    }
-    return res;
-}
-</code></pre>
-<h4 id="后序遍历">后序遍历</h4>
-<pre><code class="language-java">// 左右根 = 根右左 -&gt; reverse
-public List&lt;Integer&gt; postorderTraversal(TreeNode root) {
-    List&lt;Integer&gt; res = new ArrayList&lt;&gt;();
-    Deque&lt;TreeNode&gt; stk = new ArrayDeque&lt;&gt;();
-    while(stk.size() &gt; 0 || root != null){
-        while(root != null){
-            res.add(root.val);
-            stk.push(root);
-            root = root.right;
-        }
-        root = stk.pop();
-        root = root.left;
-    }
-    Collections.reverse(res);
-    return res;
-}
-</code></pre>
-<h4 id="重建二叉树">重建二叉树</h4>
-<pre><code class="language-java">// 记录中序遍历每个值对应的下标
-for(int i = 0; i &lt; n; i++){
-    map.put(inorder[i], i);
-}
-
-// 前序中序重建二叉树
-TreeNode build(int[] preorder, int[] inorder, int pl, int pr, int il, int ir){
-    if(pl &gt; pr || il &gt; ir) return null;
-    TreeNode root = new TreeNode(preorder[pl]);
-    int k = map.get(preorder[pl]);
-    root.left = build(preorder, inorder, pl + 1, k - il + pl, il, k - 1);
-    root.right = build(preorder, inorder, k - il + pl + 1, pr, k + 1, ir);
-    return root;
-}
-</code></pre>
-<h4 id="最近公共祖先lca">最近公共祖先LCA</h4>
-<pre><code class="language-java">// 二叉搜索树
-public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-    if(p == root || q == root) return root;
-    if(p.val &lt; root.val &amp;&amp; q.val &lt; root.val) return lowestCommonAncestor(root.left, p, q);
-    if(p.val &gt; root.val &amp;&amp; q.val &gt; root.val) return lowestCommonAncestor(root.right, p, q);
-    return root;
-}
-
-// 普通二叉树
-public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-    if(root == null || root == p || root == q) return root;
-    TreeNode left = lowestCommonAncestor(root.left, p, q);
-    TreeNode right = lowestCommonAncestor(root.right, p, q);
-    if(left == null) return right;
-    if(right == null) return left;
-    return root;
-}
-</code></pre>
-<h4 id="判断树是否相同">判断树是否相同</h4>
-<pre><code class="language-java">public boolean isSameTree(TreeNode p, TreeNode q) {
-    if(p == null &amp;&amp; q == null) return true;
-    if(p == null || q == null) return false;
-    if(p.val != q.val) return false;
-    return isSameTree(p.left, q.left) &amp;&amp; isSameTree(p.right, q.right); 
-}
-</code></pre>
-<h4 id="判断树是否对称">判断树是否对称</h4>
-<pre><code class="language-java">public boolean isSymmetric(TreeNode root) {
-    return check(root, root);
-}
-
-// 转换为两棵树是否对称
-boolean check(TreeNode p, TreeNode q){
-    if(p == null &amp;&amp; q == null) return true;
-    if(p == null || q == null) return false;
-    if(p.val != q.val) return false;
-    return check(p.left, q.right) &amp;&amp; check(p.right, q.left);
-}
-</code></pre>
-<h4 id="判断子树">判断子树</h4>
-<pre><code class="language-java">// 判断B是否是A的子树
-// 时间复杂度O(n)
-public boolean isSubStructure(TreeNode A, TreeNode B) {
-    if(A == null || B == null) return false;
-    if(check(A, B)) return true;
-    return isSubStructure(A.left, B) || isSubStructure(A.right, B);
-}
-
-boolean check(TreeNode p, TreeNode q){
-    if(q == null) return true;
-    if(p == null) return false;
-    if(p.val != q.val) return false;
-    return check(p.left, q.left) &amp;&amp; check(p.right, q.right);
-}
-</code></pre>
-<h4 id="判断平衡二叉树">判断平衡二叉树</h4>
-<pre><code class="language-java">boolean res = true;
-public boolean isBalanced(TreeNode root) {
-    dfs(root);
-    return res;
-}
-// 后序遍历，自底向上
-int dfs(TreeNode root){
-    if(root == null) return 0;
-    int lh = dfs(root.left);
-    int rh = dfs(root.right);
-    if(Math.abs(lh - rh) &gt; 1) res = false;
-    return Math.max(lh, rh) + 1;
-}
-</code></pre>
-<h4 id="求最小深度">求最小深度</h4>
-<ul>
-<li>二叉树的深度为根节点到最远叶子节点的最长路径上的节点数。</li>
-</ul>
-<pre><code class="language-java">public int minDepth(TreeNode root) {
-    if(root == null) return 0;
-    if(root.left == null &amp;&amp; root.right == null) return 1;
-    int minv = Integer.MAX_VALUE;
-    if(root.left != null) minv = Math.min(minv, minDepth(root.left));
-    if(root.right != null) minv = Math.min(minv, minDepth(root.right));
-    return minv + 1;
-}
-</code></pre>
-<h4 id="求最大深度">求最大深度</h4>
-<ul>
-<li>二叉树的深度为根节点到最远叶子节点的最长路径上的节点数。</li>
-</ul>
-<pre><code class="language-java">public int maxDepth(TreeNode root) {
-    if(root == null) return 0;
-    return Math.max(maxDepth(root.left), maxDepth(root.right)) + 1;
-}
-</code></pre>
-<h4 id="序列化与反序列化">序列化与反序列化</h4>
-<pre><code class="language-java">public class Codec {
-
-    // Encodes a tree to a single string.
-    public String serialize(TreeNode root) {
-        StringBuilder s = new StringBuilder();
-        dfs1(root, s);
-        System.out.print(s);
-        return s.toString();
-    }
-
-    // Decodes your encoded data to tree.
-    public TreeNode deserialize(String data) {
-        return dfs2(new StringBuilder(data));
-    }
-
-    void dfs1(TreeNode root, StringBuilder s){
-        if(root == null){
-            s.append(&quot;#,&quot;);
-            return;
-        }
-
-        s.append(root.val).append(&quot;,&quot;);
-        dfs1(root.left,s);
-        dfs1(root.right,s);
-    }
-
-    TreeNode dfs2(StringBuilder data){
-        if(data.charAt(0) == '#'){
-            data.delete(0,2);
-            return null;
-        }
-        boolean minus = false;
-        if(data.charAt(0) == '-') {
-            data.delete(0,1);
-            minus = true;
-        }
-        int sum = 0;
-        while(data.charAt(0) != ','){
-            sum = sum * 10 + data.charAt(0) - '0';
-            data.delete(0,1);
-        }
-        data.delete(0,1);
-        if(minus) sum = -sum;
-        TreeNode root = new TreeNode(sum);
-        root.left = dfs2(data);
-        root.right = dfs2(data);
-        return root;
-    }
-}
-</code></pre>
-<h3 id="栈与队列">栈与队列</h3>
-<h4 id="单调栈">单调栈</h4>
-<pre><code class="language-java">// 求左侧第一个比a[i]小的数下标
-for(int i = 0; i &lt; n; i++){
-    while(stk.size() &gt; 0 &amp;&amp; a[stk.peek()] &gt;= a[i]) stk.pop();
-    left[i] = stk.size() == 0 ? -1 : stk.peek();
-    stk.push(i);
-}
-
-// 求右侧第一个比a[i]小的数下标
-for(int i = n - 1; i &gt;= 0; i--){
-    while(stk.size() &gt; 0 &amp;&amp; a[stk.peek()] &gt;= a[i]) stk.pop();
-    right[i] = stk.size() == 0 ? n : stk.peek();
-    stk.push(i);
-}
-</code></pre>
-<h4 id="单调队列">单调队列</h4>
-<pre><code class="language-java">// 求nums中所有长度为k窗口的最大值
-for(int i = 0; i &lt; n; i++){
-    if(dq.size() &gt; 0 &amp;&amp; i - dq.peekFirst() == k) dq.pollFirst();
-    while(dq.size() &gt; 0 &amp;&amp; nums[i] &gt;= nums[dq.peekLast()]) dq.pollLast();
-    dq.offerLast(i);
-    if(i &gt;= k - 1) res[j++] = nums[dq.peekFirst()]; 
-}
-</code></pre>
-<h3 id="设计数据结构">设计数据结构</h3>
-<h4 id="双链表">双链表</h4>
-<pre><code class="language-java">class MyLinkedList {
-    class Node{
-        int val;
-        Node next;
-        Node prev;
-        public Node(){}
-        public Node(int val){
-            this.val = val;
-        }
-    }
-
-    Node head = new Node(-1);
-    Node tail = new Node(-1);
-    
-    int size = 0;
-
-    /** Initialize your data structure here. */
-    public MyLinkedList() {
-        head.next = tail;
-        tail.prev = head;
-    }
-    
-    /** Get the value of the index-th node in the linked list. If the index is invalid, return -1. */
-    public int get(int index) {
-        Node p = head;
-        for(int i = 0; i &lt; index + 1; i++){
-            p = p.next;
-        }
-        if(p == tail || p == null) return -1;
-        return p.val;
-    }
-    
-    /** Add a node of value val before the first element of the linked list. After the insertion, the new node will be the first node of the linked list. */
-    public void addAtHead(int val) {
-        Node t = new Node(val);
-        t.prev = head;
-        t.next = head.next;
-        head.next.prev = t;
-        head.next = t;
-        size++;
-    }
-    
-    /** Append a node of value val to the last element of the linked list. */
-    public void addAtTail(int val) {
-        Node t = new Node(val);
-        t.prev = tail.prev;
-        t.next = tail;
-        tail.prev.next = t;
-        tail.prev = t;
-        size++;
-    }
-    
-    /** Add a node of value val before the index-th node in the linked list. If index equals to the length of linked list, the node will be appended to the end of linked list. If index is greater than the length, the node will not be inserted. */
-    public void addAtIndex(int index, int val) {
-        if(index &lt; 0) {
-            addAtHead(val);
-            return;
-        }
-        if(index &gt; size) return;
-
-        Node p = head;
-        for(int i = 0; i &lt; index; i++){
-            p = p.next;
-        }
-        Node t = new Node(val);
-        t.prev = p;
-        t.next = p.next;
-        p.next.prev = t;
-        p.next = t;
-        size++;
-    }
-    
-    /** Delete the index-th node in the linked list, if the index is valid. */
-    public void deleteAtIndex(int index) {
-        Node p = head;
-        for(int i = 0; i &lt; index + 1; i++){
-            p = p.next;
-        }
-        if(p == tail || p == null) return;
-
-        Node a = p.prev, b = p.next;
-        a.next = b;
-        b.prev = a;
-        size--;
-    }
-}
-</code></pre>
-<h4 id="循环队列">循环队列</h4>
-<pre><code class="language-java">class MyCircularQueue {
-    int[] q;
-    int front = 0, rear = 0;
-    int n;
-    /** Initialize your data structure here. Set the size of the queue to be k. */
-    public MyCircularQueue(int k) {
-        q = new int[k+1];
-        n = k + 1;
-    }
-    
-    /** Insert an element into the circular queue. Return true if the operation is successful. */
-    public boolean enQueue(int value) {
-        if((rear+1) % n == front) return false;
-        q[rear] = value;
-        rear = (rear + 1) % n;
-        return true;
-    }
-    
-    /** Delete an element from the circular queue. Return true if the operation is successful. */
-    public boolean deQueue() {
-        if(front == rear) return false;
-        front = (front+1)%n; 
-        return true;
-    }
-    
-    /** Get the front item from the queue. */
-    public int Front() {
-        if(front == rear) return -1;
-        return q[front];
-    }
-    
-    /** Get the last item from the queue. */
-    public int Rear() {
-        if(front == rear) return -1;
-        return q[(rear-1+n) % n];
-    }
-    
-    /** Checks whether the circular queue is empty or not. */
-    public boolean isEmpty() {
-        return front == rear;
-    }
-    
-    /** Checks whether the circular queue is full or not. */
-    public boolean isFull() {
-        return (rear+1) % n == front;
-    }
-}
-</code></pre>
-<h4 id="循环双端队列">循环双端队列</h4>
-<pre><code class="language-java">class MyCircularDeque {
-    int[] q;
-    int n;
-    int front = 0, rear = 0;
-    /** Initialize your data structure here. Set the size of the deque to be k. */
-    public MyCircularDeque(int k) {
-        n = k + 1;
-        q = new int[n];
-    }
-    
-    /** Adds an item at the front of Deque. Return true if the operation is successful. */
-    public boolean insertFront(int value) {
-        if((rear+1)%n == front) return false;
-        front = (front-1+n) % n;
-        q[front] = value;
-        return true;
-    }
-    
-    /** Adds an item at the rear of Deque. Return true if the operation is successful. */
-    public boolean insertLast(int value) {
-        if((rear+1)%n == front) return false;
-        q[rear] = value;
-        rear = (rear+1) % n;
-        return true;
-    }
-    
-    /** Deletes an item from the front of Deque. Return true if the operation is successful. */
-    public boolean deleteFront() {
-        if(front == rear) return false;
-        front = (front+1) % n;
-        return true;
-    }
-    
-    /** Deletes an item from the rear of Deque. Return true if the operation is successful. */
-    public boolean deleteLast() {
-        if(front == rear) return false;
-        rear = (rear-1+n) % n;
-        return true;
-    }
-    
-    /** Get the front item from the deque. */
-    public int getFront() {
-        if(front == rear) return -1;
-        return q[front];
-    }
-    
-    /** Get the last item from the deque. */
-    public int getRear() {
-        if(front == rear) return -1;
-        return q[(rear-1+n)%n];
-    }
-    
-    /** Checks whether the circular deque is empty or not. */
-    public boolean isEmpty() {
-        return front == rear;
-    }
-    
-    /** Checks whether the circular deque is full or not. */
-    public boolean isFull() {
-        return (rear+1) % n == front;
-    }
-}
-</code></pre>
-<h4 id="哈希集合">哈希集合</h4>
-<pre><code class="language-java">// 拉链法
-class MyHashSet {
-    int base = 769;
-    LinkedList&lt;Integer&gt;[] data = new LinkedList[base];
-    /** Initialize your data structure here. */
-    public MyHashSet() {
-        for(int i = 0; i &lt; base; i++){
-            data[i] = new LinkedList&lt;&gt;();
-        }
-    }
-    
-    public void add(int key) {
-        int hash = key % base;
-        for(int x: data[hash]){
-            if(x == key) return;
-        }
-        data[hash].offerLast(key);
-    }
-    
-    public void remove(int key) {
-        int hash = key % base;
-        for(int x: data[hash]){
-            if(x == key) {
-                data[hash].remove((Integer)x);
-                return;
-            }
-        }
-    }
-    
-    /** Returns true if this set contains the specified element */
-    public boolean contains(int key) {
-        int hash = key % base;
-        for(int x: data[hash]){
-            if(x == key) return true;
-        }
-        return false;
-    }
-}
-</code></pre>
-<h4 id="哈希映射">哈希映射</h4>
-<pre><code class="language-java">class MyHashMap {
-    class Pair{
-        int x;
-        int y;
-        public Pair(int x, int y){
-            this.x = x;
-            this.y = y;
-        }
-    }
-    int base = 769;
-    LinkedList&lt;Pair&gt;[] data = new LinkedList[base];
-    /** Initialize your data structure here. */
-    public MyHashMap() {
-        for(int i = 0; i &lt; base; i++){
-            data[i] = new LinkedList&lt;&gt;();
-        }
-    }
-    
-    /** value will always be non-negative. */
-    public void put(int key, int value) {
-        int hash = key % base;
-        Pair p = new Pair(key, value);
-        Iterator&lt;Pair&gt; it = data[hash].iterator();
-        while(it.hasNext()){
-            Pair t = it.next();
-            if(t.x == key) {
-                t.y = value;
-                return;
-            }
-        }
-        data[hash].offerLast(p);
-    }
-    
-    /** Returns the value to which the specified key is mapped, or -1 if this map contains no mapping for the key */
-    public int get(int key) {
-        int hash = key % base;
-        Iterator&lt;Pair&gt; it = data[hash].iterator();
-        while(it.hasNext()){
-            Pair t = it.next();
-            if(t.x == key){
-                return t.y;
-            }
-        }
-        return -1;
-    }
-    
-    /** Removes the mapping of the specified value key if this map contains a mapping for the key */
-    public void remove(int key) {
-        int hash = key % base;
-        Iterator&lt;Pair&gt; it = data[hash].iterator();
-        while(it.hasNext()){
-            Pair t = it.next();
-            if(t.x == key){
-                data[hash].remove(t);
-                return;
-            }
-        }
-    }
-}
-</code></pre>
-<h4 id="lru">LRU</h4>
-<h4 id="lru缓存">LRU缓存</h4>
-<pre><code class="language-java">class LRUCache {
-    class Node{
-        int key;
-        int value;
-        Node left;
-        Node right;
-        public Node(int key, int value){
-            this.key = key;
-            this.value = value;
-        }
-    }
-    Map&lt;Integer,Node&gt; map = new HashMap&lt;&gt;();
-    Node head = new Node(-1, -1);
-    Node tail = new Node(-1, -1);
-    int n; // 最大容量
-    public LRUCache(int capacity) {
-        head.right = tail;
-        tail.left = head;
-        n = capacity;
-    }
-    
-    public int get(int key) {
-        if(map.containsKey(key)){
-            Node p = map.get(key);
-            // get视为使用过，放到链表头
-            remove(p);
-            insert(p);
-            return p.value;
-        }
-        return -1;
-    }
-    
-    public void put(int key, int value) {
-        if(map.containsKey(key)){
-            // 节点已经存在，修改值
-            Node p = map.get(key);
-            p.value = value;
-            remove(p);
-            insert(p);
-        }else{
-            // 新节点
-            Node p = new Node(key, value);
-            if(map.size() == n){
-                // LRU满，移除链表尾和map中的相应节点
-                Node t = tail.left;
-                map.remove(t.key);
-                remove(t);
-            }
-            map.put(key, p);
-            insert(p);
-        }
-    }
-
-    // 双链表中插入节点
-    public void insert(Node p){
-        p.left = head;
-        p.right = p.left.right;
-        p.right.left = p;
-        p.left.right = p;
-    }
-    // 双链表中删除节点
-    public void remove(Node p){
-        p.left.right = p.right;
-        p.right.left = p.left;
-    }
-}
-</code></pre>
-<h3 id="数学">数学</h3>
-<h4 id="大小写转换">大小写转换</h4>
-<pre><code class="language-java">'a' ^ 32 == 'A'
-'A' ^ 32 == 'a'
-</code></pre>
-<h4 id="位运算求和">位运算求和</h4>
-<pre><code class="language-java">public int add(int a, int b) {
-    while(b != 0){
-        int sum = a ^ b;
-        int carry = (a &amp; b) &lt;&lt; 1;
-        a = sum;
-        b = carry;
-    }
-    return a;
-}
-</code></pre>
-<h4 id="埃氏筛法">埃氏筛法</h4>
-<pre><code class="language-java">// 求小于n的所有质数
-public List&lt;Integer&gt; getPrimes(int n) {
-    int res = 0;
-    List&lt;Integer&gt; primes = new ArrayList&lt;&gt;();
-    boolean[] st = new boolean[n + 1];
-    for(int i = 2; i &lt; n; i++){
-        if(st[i]) continue;
-        res++;
-        primes.add(i);
-        for(int j = i * 2; j &lt; n; j += i){
-            st[j] = true;
-        }
-    }
-    return primes;
-}
-</code></pre>
-<h4 id="整数拆分">整数拆分</h4>
-<pre><code class="language-java">// 将整数拆成a1, a2, ... an，使得a1 * a2 * ... * an最大
-public int integerBreak(int n) {
-    if(n &lt;= 3) return n - 1;
-    int a = n / 3, b = n % 3;
-    if(b == 0) return (int)Math.pow(3, a);
-    else if(b == 1) return (int)Math.pow(3, a - 1) * 4;
-    else return (int)Math.pow(3, a) * 2;
-}
-</code></pre>
-<h4 id="快速幂">快速幂</h4>
-<pre><code class="language-java">//求a^k mod p
-long pow(long a, long k, long p){
-    long res = 1;
-    while(k != 0){
-        if((k &amp; 1) == 1) res = (res * a) % p;
-        k &gt;&gt;= 1;
-        a = a * a % p;
-    }
-    return res;
-}
-</code></pre>
-<h4 id="欧几里得算法">欧几里得算法</h4>
-<pre><code class="language-java">int gcd(int a, int b){
-    return b != 0 ? gcd(b, a % b) : a;
-}
-</code></pre>
-<h4 id="求三角形个数">求三角形个数</h4>
-<pre><code class="language-java">// 双指针
-public int triangleNumber(int[] nums) {
-    int n = nums.length;
-    Arrays.sort(nums);
-    int res = 0;
-    for(int i = n - 1; i &gt;= 2; i--){
-        int l = 0, r = i - 1;
-        while(l &lt; r){
-            if(nums[l] + nums[r] &gt; nums[i]){
-                res += r - l;
-                r--;
-            }else {
-                l++;
-            }
-        }
-    }
-    return res;
-}
-</code></pre>
-<h4 id="约瑟夫环">约瑟夫环</h4>
-<pre><code class="language-java">int f(int n, int k) {
-    if (n == 1) return 0;
-    return (f(n - 1, k) + k) % n;
-}
-</code></pre>
-<h3 id="前缀和-差分">前缀和、差分</h3>
-<h4 id="一维前缀和">一维前缀和</h4>
-<pre><code class="language-java">// 原数组：a[n]
-// s[i]表示第1个点到第i个点的数组和
-int[] s = new int[n+1];
-// 求s[i]
-for(int i = 1; i &lt;= n; i++){
-	s[i] = s[i-1] + a[i-1];
-}
-
-//求[l, r]区间和, 从1开始
-int sum = s[r] - s[l-1];
-</code></pre>
-<h4 id="二维前缀和">二维前缀和</h4>
-<pre><code class="language-java">// 原矩阵：a[n][m]
-// s[i][j]表示(i, j)这个点左上方的矩阵和
-int[][] s = new int[n+1][m+1];
-// 求s[i][j]
-for(int i = 1; i &lt;= n; i++){
-	for(int j = 1; j &lt;= m; j++){
-		s[i][j] = s[i-1][j] + s[i][j-1] - s[i-1][j-1] + a[i-1][j-1];
-	}
-}
-
-// 求左上角(x1, y1), 右下角(x2, y2)的子矩阵中所有数的和
-int sum = s[x2][y2] - s[x1-1][y2] - s[x2][y1-1] + s[x1-1][y1-1];
-</code></pre>
-<h4 id="一维差分">一维差分</h4>
-<pre><code class="language-java">// r最大到n, r+1最大到n+1, 所以数组需要n+2的长度
-int[] b = new int[n+2];
-
-// 不用从原数组构造差分数组，可直接从0开始插入
-void insert(int l, int r){
-	b[l] += c;
-	b[r+1] -= c;
-}
-
-// 计算前缀和, 获得处理之后的原数组
-for(int i = 1; i &lt;= n; i++){
-	b[i] += b[i-1];
-}
-</code></pre>
-<h4 id="二维差分">二维差分</h4>
-<pre><code class="language-java">int[][] b = new int[n+2][m+2];
-
-void insert(int x1, int y1, int x2, int y2, int c){
-    b[x1][y1] += c;
-    b[x2+1][y1] -= c;
-    b[x1][y2+1] -= c;
-    b[x2+1][y2+1] += c;
-}
-
-// 计算前缀和, 获得处理之后的原数组
-for(int i = 1; i &lt;= n; i++){
-	for(int j = 1; j &lt;= m; j++){
-		b[i][j] += b[i-1][j] + b[i][j-1] - s[i-1][j-1];
-	}
-}
-</code></pre>
-<h3 id="进制转换">进制转换</h3>
-<h4 id="10进制转其他进制">10进制转其他进制</h4>
-<ul>
-<li>短除法</li>
-</ul>
-<pre><code class="language-java">char intToChar(int x){
-    if(x &lt;= 9) return (char)(x + '0');
-    return (char)(x - 10 + 'A');
-}
-
-String base(int x, int b){
-    StringBuilder num = new StringBuilder();
-    while(x &gt; 0){
-        num.append(intToChar(x % b));
-        x /= b;
-    }
-    return num.reverse().toString();
-}
-</code></pre>
-<h4 id="其他进制转10进制">其他进制转10进制</h4>
-<pre><code class="language-java">int charToInt(char x){
-    if(x &lt;= '9') return x - '0';
-    return x - 'A' + 10;
-}
-
-int base10(String x, int b){
-    int res = 0;
-    for(char c: x.toCharArray()){
-        res = res * b + charToInt(c);
-    }
-    return res;
-}
-</code></pre>
-<h3 id="并查集">并查集</h3>
-<pre><code class="language-java">class UF{
-    int[] p; // p[i]表示i的父节点
-    int[] size; // size[i]表示i这个节点所在的连通块中的节点数目（只有根节点的size有意义）
-    int cnt; // 并查集中的连通块数目
-
-    //初始化
-    public UF(int n){
-        cnt = n;
-        for(int i = 0; i &lt; n; i++){
-            p[i] = i;
-            size[i] = 1;
-        }
-    }
-
-    int find(int x){
-        if(x != p[x]) p[x] = find(p[x]);
-        return p[x];
-    }
-
-    boolean union(int x, int y){
-        int a = find(x), b = find(y);
-        if(a == b) return false;
-        p[a] = b;
-        size[b] += size[a];
-        cnt--;
-        return true;
-    }
-}    
-</code></pre>
-<h3 id="最短路">最短路</h3>
-<ul>
-<li>建图</li>
-</ul>
-<pre><code class="language-java">Map&lt;Integer,List&lt;int[]&gt;&gt; g = new HashMap&lt;&gt;();
-for(int[] e: edges){
-    int a = e[0], b = e[1], c = e[2];
-    g.computeIfAbsent(a, k -&gt; new ArrayList&lt;&gt;()).add(new int[]{b, c});
-    g.computeIfAbsent(b, k -&gt; new ArrayList&lt;&gt;()).add(new int[]{a, c});
-}
-</code></pre>
-<h4 id="dijkstra">Dijkstra</h4>
-<ul>
-<li>堆优化版Dijkstra</li>
-</ul>
-<pre><code class="language-java">// u为起点
-// 跑一遍Dijkstra之后可以求出所有点到u的最短路径
-void dijkstra(int u){
-    Arrays.fill(dist, Integer.MAX_VALUE);
-    Arrays.fill(st, false);
-    dist[u] = 0;
-    PriorityQueue&lt;int[]&gt; pq = new PriorityQueue&lt;&gt;((o1,o2) -&gt; o1[0]-o2[0]);
-    //第一个值是距离源点的距离，第二个值是节点的编号
-    pq.offer(new int[]{0, u});
-    while(!pq.isEmpty()){
-        int[] t = pq.poll();
-        int v = t[1];
-        if(st[v]) continue;
-        st[v] = true;
-        for(int[] next: g.get(v)){
-            int nv = next[0];
-            int w = next[1];
-            if(dist[nv] &gt; dist[v] + w){
-                dist[nv] = dist[v] + w;
-                pq.offer(new int[]{dist[nv], nv});
-            }
-        }
-    }
-}
-</code></pre>
-<h3 id="数组处理">数组处理</h3>
-<h4 id="原地哈希情形1求缺失的第一个正数">原地哈希情形1：求缺失的第一个正数</h4>
-<pre><code class="language-c++">int firstMissingPositive(vector&lt;int&gt;&amp; nums) {
-    int n = nums.size();
-    for(int i = 0; i &lt; n; i++){
-        while(nums[i] &gt;= 1 &amp;&amp; nums[i] &lt;= n &amp;&amp; nums[i] != nums[nums[i]-1]){
-            swap(nums[i], nums[nums[i]-1]);
-        }
-    }
-    for(int i = 0; i &lt; n; i++){
-        if(nums[i] != i + 1) return i + 1;
-    }
-    return n + 1;
-}
-</code></pre>
-<h4 id="原地哈希情形2求数组中消失的数字范围1-n">原地哈希情形2：求数组中消失的数字，范围[1, n]</h4>
-<pre><code class="language-c++">vector&lt;int&gt; findDisappearedNumbers(vector&lt;int&gt;&amp; nums) {
-    int n = nums.size();
-    vector&lt;int&gt; res;
-    for(int i = 0; i &lt; n; i++){
-        while(nums[i] != nums[nums[i]-1]){
-            swap(nums[i], nums[nums[i]-1]);
-        }
-    } 
-    for(int i = 0; i &lt; n; i++){
-        if(nums[i] != i + 1) res.push_back(i + 1);
-    }
-    return res;
-}
-</code></pre>
-<h4 id="原地哈希情形3求数组中重复的数字范围1-n">原地哈希情形3：求数组中重复的数字，范围[1, n]</h4>
-<pre><code class="language-c++">vector&lt;int&gt; findDuplicates(vector&lt;int&gt;&amp; nums) {
-    int n = nums.size();
-    vector&lt;int&gt; res;
-    for(int i = 0; i &lt; n; i++){
-        while(nums[i] != nums[nums[i]-1]){
-            swap(nums[i], nums[nums[i]-1]);
-        }
-    }
-    for(int i = 0; i &lt; n; i++){
-        if(nums[i] != i + 1) res.push_back(nums[i]);
-    }
-    return res;
-}
-</code></pre>
-<h4 id="删除有序数组中的重复项">删除有序数组中的重复项</h4>
-<pre><code class="language-java">// 删除有序数组中的重复元素，使得每个元素最多出现u次
-int remove(int[] nums, int u){
-    int n = nums.length;
-    int k = 0;
-    for(int i = 0; i &lt; n; i++){
-        if(i &lt; u || nums[k - u] != nums[i]){
-            nums[k++] = nums[i];
-        }
-    }
-    return k;
-}
-</code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Hello Gridea]]></title>
-        <id>https://Ryan-ovo.github.io/post/hello-gridea/</id>
-        <link href="https://Ryan-ovo.github.io/post/hello-gridea/">
-        </link>
-        <updated>2018-12-11T16:00:00.000Z</updated>
-        <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-<!-- more -->
-<p><a href="https://github.com/getgridea/gridea">Github</a><br>
-<a href="https://gridea.dev/">Gridea 主页</a><br>
-<a href="http://fehey.com/">示例网站</a></p>
-<h2 id="特性">特性👇</h2>
-<p>📝  你可以使用最酷的 <strong>Markdown</strong> 语法，进行快速创作</p>
-<p>🌉  你可以给文章配上精美的封面图和在文章任意位置插入图片</p>
-<p>🏷️  你可以对文章进行标签分组</p>
-<p>📋  你可以自定义菜单，甚至可以创建外部链接菜单</p>
-<p>💻  你可以在 <strong>Windows</strong>，<strong>MacOS</strong> 或 <strong>Linux</strong> 设备上使用此客户端</p>
-<p>🌎  你可以使用 <strong>𝖦𝗂𝗍𝗁𝗎𝖻 𝖯𝖺𝗀𝖾𝗌</strong> 或 <strong>Coding Pages</strong> 向世界展示，未来将支持更多平台</p>
-<p>💬  你可以进行简单的配置，接入 <a href="https://github.com/gitalk/gitalk">Gitalk</a> 或 <a href="https://github.com/SukkaW/DisqusJS">DisqusJS</a> 评论系统</p>
-<p>🇬🇧  你可以使用<strong>中文简体</strong>或<strong>英语</strong></p>
-<p>🌁  你可以任意使用应用内默认主题或任意第三方主题，强大的主题自定义能力</p>
-<p>🖥  你可以自定义源文件夹，利用 OneDrive、百度网盘、iCloud、Dropbox 等进行多设备同步</p>
-<p>🌱 当然 <strong>Gridea</strong> 还很年轻，有很多不足，但请相信，它会不停向前 🏃</p>
-<p>未来，它一定会成为你离不开的伙伴</p>
-<p>尽情发挥你的才华吧！</p>
-<p>😘 Enjoy~</p>
-]]></content>
-    </entry>
-</feed>
+    </script>
+  </body>
+</html>

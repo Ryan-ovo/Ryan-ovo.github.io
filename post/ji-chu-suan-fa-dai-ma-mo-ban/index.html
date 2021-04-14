@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>基础算法代码模板 | Gridea</title>
-<link rel="shortcut icon" href="https://Ryan-ovo.github.io/favicon.ico?v=1618311270693">
+<link rel="shortcut icon" href="https://Ryan-ovo.github.io/favicon.ico?v=1618364101844">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://Ryan-ovo.github.io/styles/main.css">
 <link rel="alternate" type="application/atom+xml" title="基础算法代码模板 | Gridea - Atom Feed" href="https://Ryan-ovo.github.io/atom.xml">
@@ -26,7 +26,7 @@ void quick_sort(int l, int r){
       <div class="main-content">
         <div class="site-header">
   <a href="https://Ryan-ovo.github.io">
-  <img class="avatar" src="https://Ryan-ovo.github.io/images/avatar.png?v=1618311270693" alt="">
+  <img class="avatar" src="https://Ryan-ovo.github.io/images/avatar.png?v=1618364101844" alt="">
   </a>
   <h1 class="site-title">
     Gridea
@@ -90,7 +90,7 @@ void quick_sort(int l, int r){
                 2021-04-13
               </span>
               <span>
-                33 min read
+                34 min read
               </span>
               
                 <a href="https://Ryan-ovo.github.io/tag/StbrKBjtt/" class="post-tag">
@@ -1121,6 +1121,52 @@ class MyHashSet {
     }
 }
 </code></pre>
+<h4 id="tire树">Tire树</h4>
+<pre><code class="language-java">class Trie {
+    class Node{
+        Node[] son = new Node[26];
+        boolean isEnd;
+    }
+    Node root;
+    /** Initialize your data structure here. */
+    public Trie() {
+        root = new Node();
+    }
+    
+    /** Inserts a word into the trie. */
+    public void insert(String word) {
+        Node p = root;
+        for(char c: word.toCharArray()){
+            int u = c - 'a';
+            if(p.son[u] == null) p.son[u] = new Node();
+            p = p.son[u];
+        }
+        p.isEnd = true;
+    }
+    
+    /** Returns if the word is in the trie. */
+    public boolean search(String word) {
+        Node p = root;
+        for(char c: word.toCharArray()){
+            int u = c - 'a';
+            if(p.son[u] == null) return false;
+            p = p.son[u];
+        }
+        return p.isEnd;
+    }
+    
+    /** Returns if there is any word in the trie that starts with the given prefix. */
+    public boolean startsWith(String word) {
+        Node p = root;
+        for(char c: word.toCharArray()){
+            int u = c - 'a';
+            if(p.son[u] == null) return false;
+            p = p.son[u];
+        }
+        return true;
+    }
+}
+</code></pre>
 <h3 id="数学">数学</h3>
 <h4 id="大小写转换">大小写转换</h4>
 <pre><code class="language-java">'a' ^ 32 == 'A'
@@ -1503,6 +1549,7 @@ int remove(int[] nums, int u){
 <li><a href="#%E5%93%88%E5%B8%8C%E6%98%A0%E5%B0%84">哈希映射</a></li>
 <li><a href="#lru">LRU</a></li>
 <li><a href="#lru%E7%BC%93%E5%AD%98">LRU缓存</a></li>
+<li><a href="#tire%E6%A0%91">Tire树</a></li>
 </ul>
 </li>
 <li><a href="#%E6%95%B0%E5%AD%A6">数学</a>

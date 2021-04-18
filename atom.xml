@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://Ryan-ovo.github.io</id>
     <title>Gridea</title>
-    <updated>2021-04-18T10:12:09.862Z</updated>
+    <updated>2021-04-18T14:28:10.027Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://Ryan-ovo.github.io"/>
     <link rel="self" href="https://Ryan-ovo.github.io/atom.xml"/>
@@ -10,6 +10,76 @@
     <logo>https://Ryan-ovo.github.io/images/avatar.png</logo>
     <icon>https://Ryan-ovo.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[[题解]LeetCode421.数组中两个数的最大异或和]]></title>
+        <id>https://Ryan-ovo.github.io/post/ti-jie-leetcode421shu-zu-zhong-liang-ge-shu-de-zui-da-yi-huo-he/</id>
+        <link href="https://Ryan-ovo.github.io/post/ti-jie-leetcode421shu-zu-zhong-liang-ge-shu-de-zui-da-yi-huo-he/">
+        </link>
+        <updated>2021-04-18T14:26:50.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="题目描述">题目描述</h3>
+<p>给定一个非空数组，数组中元素为 a0, a1, a2, … , an-1，其中 0 ≤ ai &lt; 231 。</p>
+<p>找到 ai 和aj 最大的异或 (XOR) 运算结果，其中0 ≤ i,  j &lt; n 。</p>
+<p>你能在<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span>的时间解决这个问题吗？</p>
+<h4 id="样例">样例</h4>
+<pre><code>输入: [3, 10, 5, 25, 2, 8]
+
+输出: 28
+
+解释: 最大的结果是 5 ^ 25 = 28.
+</code></pre>
+<hr>
+<h3 id="算法1">算法1</h3>
+<h4 id="0-1字典树-on">(0-1字典树)  <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span></h4>
+<p>思想：将每个数字的二进制位，从高位到低位存储到前缀树中，也就是说前缀树中仅有0和1这两个数字。</p>
+<ul>
+<li>根据数学知识可以知道：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mi>i</mi></msup></mrow><annotation encoding="application/x-tex">2^i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.824664em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.824664em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span></span></span></span></span></span></span></span> &gt; <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mrow><mi>i</mi><mo>−</mo><mn>1</mn></mrow></msup></mrow><annotation encoding="application/x-tex">2^{i-1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.824664em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.824664em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span></span></span></span>+<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mrow><mi>i</mi><mo>−</mo><mn>2</mn></mrow></msup></mrow><annotation encoding="application/x-tex">2^{i-2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.824664em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.824664em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mbin mtight">−</span><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></span>+...+<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mn>1</mn></msup></mrow><annotation encoding="application/x-tex">2^1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span></span></span></span></span></span></span></span>+<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mn>0</mn></msup></mrow><annotation encoding="application/x-tex">2^0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span></span></span></span></span></span></span></span></li>
+<li>可以发现：异或只要两位不相同就是1，如果高位有一位是1，那么数就会大于这一位是0且低位全是1的情况。这就是从高位开始遍历的贪心思想。</li>
+<li>如果某一位二进制位是0，但是前缀树的遍历过程中没有1的分支，则被迫走0的分支，反过来同理</li>
+<li>树的高度由二进制位最多的数字决定，所以分支非0即1，不会有某一个数的二进制位先走到底的情况</li>
+</ul>
+<h4 id="java-代码">Java 代码</h4>
+<pre><code class="language-java">class Solution {
+    class Node{
+        Node[] son = new Node[2];
+    }
+    Node root = new Node();
+    void insert(int x){
+        Node p = root;
+        for(int i = 30; i &gt;= 0; i--){
+            int t = (x &gt;&gt; i) &amp; 1;
+            if(p.son[t] == null){
+                p.son[t] = new Node();
+            }
+            p = p.son[t];
+        }
+    }
+
+    int search(int x){
+        Node p = root;
+        int xor = 0;
+        for(int i = 30; i &gt;= 0; i--){
+            int t = (x &gt;&gt; i) &amp; 1;
+            if(p.son[t ^ 1] != null){
+                xor += (1 &lt;&lt; i);
+                p = p.son[t ^ 1];
+            }else{
+                p = p.son[t];
+            }
+        }
+        return xor;
+    }
+
+    public int findMaximumXOR(int[] nums) {
+        if(nums.length == 0) return 0;
+        for(int x: nums) insert(x);
+        int res = 0;
+        for(int x: nums) res = Math.max(res, search(x));
+        return res;
+    }
+}
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[LeetCode第237场周赛题解]]></title>
         <id>https://Ryan-ovo.github.io/post/leetcode-di-237-chang-zhou-sai-ti-jie/</id>
@@ -121,7 +191,7 @@
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[【题解】LeetCode730.统计不同回文子序列]]></title>
+        <title type="html"><![CDATA[[题解]LeetCode730.统计不同回文子序列]]></title>
         <id>https://Ryan-ovo.github.io/post/ti-jie-leetcode730tong-ji-bu-tong-hui-wen-zi-xu-lie/</id>
         <link href="https://Ryan-ovo.github.io/post/ti-jie-leetcode730tong-ji-bu-tong-hui-wen-zi-xu-lie/">
         </link>

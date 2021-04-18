@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://Ryan-ovo.github.io</id>
     <title>Gridea</title>
-    <updated>2021-04-17T14:39:17.863Z</updated>
+    <updated>2021-04-18T09:36:16.390Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://Ryan-ovo.github.io"/>
     <link rel="self" href="https://Ryan-ovo.github.io/atom.xml"/>
@@ -10,6 +10,117 @@
     <logo>https://Ryan-ovo.github.io/images/avatar.png</logo>
     <icon>https://Ryan-ovo.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[LeetCode第237场周赛题解]]></title>
+        <id>https://Ryan-ovo.github.io/post/leetcode-di-237-chang-zhou-sai-ti-jie/</id>
+        <link href="https://Ryan-ovo.github.io/post/leetcode-di-237-chang-zhou-sai-ti-jie/">
+        </link>
+        <updated>2021-04-18T09:33:13.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="leetcode第237场周赛题解">LeetCode第237场周赛题解</h2>
+<h3 id="t1-判断句子是否为全字母句">T1-<a href="https://leetcode-cn.com/problems/check-if-the-sentence-is-pangram/">判断句子是否为全字母句</a></h3>
+<ul>
+<li>思路：模拟+计数</li>
+</ul>
+<pre><code class="language-java">class Solution {
+    public boolean checkIfPangram(String s) {
+        boolean[] st = new boolean[26];
+        for(char c: s.toCharArray()){
+            st[c-'a'] = true;
+        }
+        for(int i = 0; i &lt; 26; i++){
+            if(!st[i]) return false;
+        }
+        return true;
+    }
+}
+</code></pre>
+<ul>
+<li>时间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span></li>
+<li>空间复杂度：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mn>1</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span></li>
+</ul>
+<h3 id="t2-雪糕的最大数量">T2-<a href="https://leetcode-cn.com/problems/maximum-ice-cream-bars/">雪糕的最大数量</a></h3>
+<ul>
+<li>思路：贪心</li>
+<li>将数组从小到大排序依次选取即可</li>
+</ul>
+<pre><code class="language-java">class Solution {
+    public int maxIceCream(int[] costs, int coins) {
+        Arrays.sort(costs);
+        int res = 0;
+        int n = costs.length;
+        for(int i = 0; i &lt; n; i++){
+            if(coins - costs[i] &gt;= 0) {
+                coins -= costs[i];
+                res++;
+            }
+            if(coins &lt;= 0) return res;
+        }
+        return res;
+    }
+}
+</code></pre>
+<h3 id="t3-单线程cpu">T3-<a href="https://leetcode-cn.com/problems/single-threaded-cpu/">单线程CPU</a></h3>
+<ul>
+<li>思路：贪心+堆</li>
+<li>创建三元组数组，分别保存开始时间，持续时间和下标；创建一个小根堆，先按照持续时间排序，相同再按照下标排序</li>
+<li>对任务进行开始时间从小到大的排序，然后按题意进行模拟。
+<ol>
+<li>每次先求出当前进行到的时间，然后将所有开始时间早于当前时间的任务加入优先队列（如果当前时间堆中没有任务，则快进到下一个任务的开始时间）</li>
+<li>取出堆顶的任务进行处理，并更新当前时间，直到任务列表全部执行结束</li>
+</ol>
+</li>
+</ul>
+<pre><code class="language-java">class Solution {
+    class Task{
+        int st;
+        int duration;
+        int idx;
+    }
+    public int[] getOrder(int[][] tasks) {
+        int n = tasks.length;
+        int[] res = new int[n];
+        Task[] ts = new Task[n];
+        for(int i = 0; i &lt; n; i++){
+            ts[i] = new Task();
+            ts[i].st = tasks[i][0];
+            ts[i].duration = tasks[i][1];
+            ts[i].idx = i;
+        }
+        PriorityQueue&lt;Task&gt; heap = new PriorityQueue&lt;&gt;((t1, t2) -&gt; t1.duration == t2.duration ? t1.idx - t2.idx : t1.duration - t2.duration);
+        Arrays.sort(ts, (t1, t2) -&gt; t1.st - t2.st);
+        int i = 0, u = 0;
+        int now = 0; // 当前进行到多少分钟
+        while(heap.size() != 0 || i &lt; n){
+            if(heap.size() == 0){
+                now = Math.max(now, ts[i].st);
+            }
+            while(i &lt; n &amp;&amp; ts[i].st &lt;= now){
+                heap.offer(ts[i++]);
+            }
+            Task t = heap.poll();
+            now += t.duration;
+            res[u++] = t.idx;
+        }
+        return res;
+    }
+}
+</code></pre>
+<h3 id="t4-所有数对按位与结果的异或和">T4-<a href="https://leetcode-cn.com/problems/find-xor-sum-of-all-pairs-bitwise-and/">所有数对按位与结果的异或和</a></h3>
+<h4 id="方法1分配律">方法1：分配律</h4>
+<ul>
+<li><span class='katex-error' title='ParseError: KaTeX parse error: Expected &#039;EOF&#039;, got &#039;&amp;&#039; at position 3: a &amp;̲ (b ^ c) = (a &amp;…'>a &amp; (b ^ c) = (a &amp; b) ^ (a &amp; c)</span></li>
+</ul>
+<pre><code class="language-java">class Solution {
+    public int getXORSum(int[] a, int[] b) {
+        int s1 = 0, s2 = 0;
+        for(int x: a) s1 ^= x;
+        for(int x: b) s2 ^= x;
+        return s1 &amp; s2;
+    }
+}
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[【题解】LeetCode730.统计不同回文子序列]]></title>
         <id>https://Ryan-ovo.github.io/post/ti-jie-leetcode730tong-ji-bu-tong-hui-wen-zi-xu-lie/</id>

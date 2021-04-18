@@ -1,126 +1,105 @@
+
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+<meta charset="utf-8" >
+
 <title>LeetCode题型总结 | Gridea</title>
-<link rel="shortcut icon" href="https://Ryan-ovo.github.io/favicon.ico?v=1618738572321">
-<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<meta name="description" content="温故而知新">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://Ryan-ovo.github.io/favicon.ico?v=1618740329054">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://Ryan-ovo.github.io/styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="LeetCode题型总结 | Gridea - Atom Feed" href="https://Ryan-ovo.github.io/atom.xml">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
 
-    <meta name="description" content="目录
-
-1.二分
-
-1.1 索引二分
-1.2 值域二分
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 
 
-2.链表
-3.数组
-4.树
-5.Trie树（字典树）
-6.堆
-7.栈、队列
 
-7.1 转换
-7.2 单调栈
-7.3 单调队列
-7.4 逆波兰表达式/计算器
-7.5 括号序列
-
-
-8..." />
-    <meta name="keywords" content="Algorithm" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
-    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
   </head>
   <body>
-    <div class="main">
-      <div class="main-content">
-        <div class="site-header">
-  <a href="https://Ryan-ovo.github.io">
-  <img class="avatar" src="https://Ryan-ovo.github.io/images/avatar.png?v=1618738572321" alt="">
-  </a>
-  <h1 class="site-title">
-    Gridea
-  </h1>
-  <p class="site-description">
-    温故而知新
-  </p>
-  <div class="menu-container">
-    
-      
-        <a href="/" class="menu">
-          首页
-        </a>
-      
-    
-      
-        <a href="/archives" class="menu">
-          归档
-        </a>
-      
-    
-      
-        <a href="/tags" class="menu">
-          标签
-        </a>
-      
-    
-      
-        <a href="/post/about" class="menu">
-          关于
-        </a>
-      
-    
-  </div>
-  <div class="social-container">
-    
-      
-        <a href="https://github.com/Ryan-ovo" target="_blank">
-          <i class="ri-github-line"></i>
-        </a>
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://Ryan-ovo.github.io">
+        <img class="avatar" src="https://Ryan-ovo.github.io/images/avatar.png?v=1618740329054" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://Ryan-ovo.github.io">
+        <h1 class="site-title">Gridea</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
   </div>
 </div>
 
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
         <div class="post-detail">
-          <article class="post">
-            <h2 class="post-title">
-              LeetCode题型总结
-            </h2>
-            <div class="post-info">
-              <span>
-                2021-04-13
-              </span>
-              <span>
-                22 min read
-              </span>
-              
-                <a href="https://Ryan-ovo.github.io/tag/StbrKBjtt/" class="post-tag">
-                  # Algorithm
-                </a>
-              
+          
+            <div class="feature-container" style="background-image: url('https://Ryan-ovo.github.io/post-images/leetcode-ti-xing-zong-jie.JPG')">
             </div>
+          
+          <h2 class="post-title">LeetCode题型总结</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2021-04-13</span>
             
-              <img class="post-feature-image" src="https://Ryan-ovo.github.io/post-images/leetcode-ti-xing-zong-jie.JPG" alt="">
+              <span>
+                <i class="icon-pricetags-outline"></i>
+                
+                  <a href="https://Ryan-ovo.github.io/tag/StbrKBjtt/">
+                    Algorithm
+                    
+                  </a>
+                
+              </span>
             
-            <div class="post-content-wrapper">
-              <div class="post-content">
-                <h3 id="目录">目录</h3>
+          </div>
+          <div class="post-content">
+            <h3 id="目录">目录</h3>
 <ul>
 <li>1.二分
 <ul>
@@ -866,169 +845,57 @@
 <li><a href="https://leetcode-cn.com/problems/detect-cycles-in-2d-grid/">LeetCode1559. 二维网格图中探测环</a>（并查集）</li>
 </ul>
 
-              </div>
-              <div class="toc-container">
-                <ul class="markdownIt-TOC">
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#%E7%9B%AE%E5%BD%95">目录</a></li>
-<li><a href="#1%E4%BA%8C%E5%88%86">1.二分</a>
-<ul>
-<li><a href="#11-%E7%B4%A2%E5%BC%95%E4%BA%8C%E5%88%86">1.1 索引二分</a></li>
-<li><a href="#12-%E5%80%BC%E5%9F%9F%E4%BA%8C%E5%88%86">1.2 值域二分</a></li>
-</ul>
-</li>
-<li><a href="#2%E9%93%BE%E8%A1%A8">2.链表</a></li>
-<li><a href="#3%E6%95%B0%E7%BB%84">3.数组</a></li>
-<li><a href="#4%E6%A0%91">4.树</a></li>
-<li><a href="#5trie%E6%A0%91%E5%AD%97%E5%85%B8%E6%A0%91">5.Trie树(字典树)</a></li>
-<li><a href="#6%E5%A0%86">6.堆</a></li>
-<li><a href="#7%E6%A0%88-%E9%98%9F%E5%88%97">7.栈、队列</a>
-<ul>
-<li><a href="#71-%E8%BD%AC%E6%8D%A2">7.1 转换</a></li>
-<li><a href="#72-%E5%8D%95%E8%B0%83%E6%A0%88">7.2 单调栈</a></li>
-<li><a href="#73-%E5%8D%95%E8%B0%83%E9%98%9F%E5%88%97">7.3 单调队列</a></li>
-<li><a href="#74-%E9%80%86%E6%B3%A2%E5%85%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%AE%A1%E7%AE%97%E5%99%A8">7.4 逆波兰表达式/计算器</a></li>
-<li><a href="#75-%E6%8B%AC%E5%8F%B7%E5%BA%8F%E5%88%97">7.5 括号序列</a></li>
-</ul>
-</li>
-<li><a href="#8%E5%8F%8C%E6%8C%87%E9%92%88">8.双指针</a>
-<ul>
-<li><a href="#81-%E5%90%8C%E5%90%91%E5%8F%8C%E6%8C%87%E9%92%88">8.1 同向双指针</a></li>
-<li><a href="#82-%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3">8.2 滑动窗口</a></li>
-<li><a href="#83-%E9%80%86%E5%90%91%E5%8F%8C%E6%8C%87%E9%92%88">8.3 逆向双指针</a></li>
-</ul>
-</li>
-<li><a href="#9%E5%93%88%E5%B8%8C%E8%A1%A8">9.哈希表</a></li>
-<li><a href="#10%E4%BD%8D%E8%BF%90%E7%AE%97">10.位运算</a></li>
-<li><a href="#11%E6%8E%92%E5%BA%8F">11.排序</a></li>
-<li><a href="#12%E6%95%B0%E5%AD%A6">12.数学</a></li>
-<li><a href="#13%E6%90%9C%E7%B4%A2">13.搜索</a>
-<ul>
-<li><a href="#131-dfs">13.1 DFS</a></li>
-<li><a href="#132-bfs">13.2 BFS</a></li>
-</ul>
-</li>
-<li><a href="#14%E8%B4%AA%E5%BF%83">14.贪心</a>
-<ul>
-<li><a href="#141-%E5%8C%BA%E9%97%B4%E7%B1%BB%E8%B4%AA%E5%BF%83">14.1 区间类贪心</a></li>
-</ul>
-</li>
-<li><a href="#15%E5%88%86%E6%B2%BB">15.分治</a></li>
-<li><a href="#16%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92">16.动态规划</a>
-<ul>
-<li><a href="#161-%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98">16.1 背包问题</a>
-<ul>
-<li><a href="#1611-01%E8%83%8C%E5%8C%85">16.1.1 01背包</a></li>
-<li><a href="#1612-%E5%AE%8C%E5%85%A8%E8%83%8C%E5%8C%85">16.1.2 完全背包</a></li>
-<li><a href="#1613-%E4%BA%8C%E7%BB%B4%E8%B4%B9%E7%94%A8%E8%83%8C%E5%8C%85">16.1.3 二维费用背包</a></li>
-<li><a href="#1614-%E6%B1%82%E5%85%B7%E4%BD%93%E6%96%B9%E6%A1%88">16.1.4 求具体方案</a></li>
-</ul>
-</li>
-<li><a href="#162-lis%E6%A8%A1%E5%9E%8B">16.2 LIS模型</a></li>
-<li><a href="#163-%E7%BA%BF%E6%80%A7dp">16.3 线性DP</a></li>
-<li><a href="#164-%E5%8C%BA%E9%97%B4dp">16.4 区间DP</a></li>
-<li><a href="#165-%E6%A0%91%E5%BD%A2dp">16.5 树形DP</a></li>
-<li><a href="#166-%E8%AE%B0%E5%BF%86%E5%8C%96%E6%90%9C%E7%B4%A2">16.6 记忆化搜索</a></li>
-<li><a href="#167-%E7%8A%B6%E6%80%81%E6%9C%BAdp">16.7 状态机DP</a></li>
-<li><a href="#168-%E7%8A%B6%E5%8E%8Bdp">16.8 状压DP</a></li>
-</ul>
-</li>
-<li><a href="#17%E5%9B%BE%E8%AE%BA">17.图论</a></li>
-<li><a href="#18%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84">18.树状数组</a></li>
-<li><a href="#19%E8%93%84%E6%B0%B4%E6%B1%A0%E6%8A%BD%E6%A0%B7">19.蓄水池抽样</a></li>
-<li><a href="#20%E5%AD%97%E7%AC%A6%E4%B8%B2">20.字符串</a></li>
-<li><a href="#leetcode%E7%AC%AC30%E5%9C%BA%E5%8F%8C%E5%91%A8%E8%B5%9B">LeetCode第30场双周赛</a></li>
-<li><a href="#leetcode%E7%AC%AC192%E5%9C%BA%E5%91%A8%E8%B5%9B">LeetCode第192场周赛</a></li>
-<li><a href="#leetcode%E7%AC%AC217%E5%9C%BA%E5%91%A8%E8%B5%9B">LeetCode第217场周赛</a></li>
-<li><a href="#leetcode%E7%AC%AC218%E5%9C%BA%E5%91%A8%E8%B5%9B">LeetCode第218场周赛</a></li>
-<li><a href="#leetcode%E7%AC%AC219%E5%9C%BA%E5%91%A8%E8%B5%9B">LeetCode第219场周赛</a></li>
-<li><a href="#leetcode%E7%AC%AC220%E5%9C%BA%E5%91%A8%E8%B5%9B">LeetCode第220场周赛</a></li>
-<li><a href="#leetcode%E7%AC%AC221%E5%9C%BA%E5%91%A8%E8%B5%9B">LeetCode第221场周赛</a></li>
-<li><a href="#leetcode%E7%AC%AC222%E5%9C%BA%E5%91%A8%E8%B5%9B">LeetCode第222场周赛</a></li>
-<li><a href="#leetcode%E7%AC%AC223%E5%9C%BA%E5%91%A8%E8%B5%9B">LeetCode第223场周赛</a></li>
-<li><a href="#leetcode%E7%AC%AC224%E5%9C%BA%E5%91%A8%E8%B5%9B">LeetCode第224场周赛</a></li>
-<li><a href="#%E7%AC%AC45%E5%9C%BA%E5%8F%8C%E5%91%A8%E8%B5%9B">第45场双周赛</a></li>
-<li><a href="#%E7%AC%AC228%E5%9C%BA%E5%91%A8%E8%B5%9B">第228场周赛</a></li>
-<li><a href="#%E7%AC%AC229%E5%9C%BA%E5%91%A8%E8%B5%9B">第229场周赛</a></li>
-<li><a href="#%E7%AC%AC230%E5%9C%BA%E5%91%A8%E8%B5%9B">第230场周赛</a></li>
-<li><a href="#%E7%AC%AC31%E5%9C%BA%E5%8F%8C%E5%91%A8%E8%B5%9B">第31场双周赛</a></li>
-<li><a href="#%E7%AC%AC33%E5%9C%BA%E5%8F%8C%E5%91%A8%E8%B5%9B">第33场双周赛</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-              </div>
-            </div>
-          </article>
+          </div>
         </div>
 
         
           <div class="next-post">
-            <div class="next">下一篇</div>
-            <a href="https://Ryan-ovo.github.io/post/ji-chu-suan-fa-dai-ma-mo-ban/">
+            <a class="purple-link" href="https://Ryan-ovo.github.io/post/ji-chu-suan-fa-dai-ma-mo-ban/">
               <h3 class="post-title">
-                基础算法代码模板
+                下一篇：基础算法代码模板
               </h3>
             </a>
           </div>
-        
+          
+      </div>
 
-        
+      
 
-        <div class="site-footer">
-  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
-  <a class="rss" href="https://Ryan-ovo.github.io/atom.xml" target="_blank">
-    <i class="ri-rss-line"></i> RSS
-  </a>
+      <div class="site-footer">
+  <div class="slogan">温故而知新</div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://Ryan-ovo.github.io/atom.xml" target="_blank">RSS</a>
 </div>
 
-      </div>
+
     </div>
+    <script type="application/javascript">
 
-    <script>
-      hljs.initHighlightingOnLoad()
+hljs.initHighlightingOnLoad()
 
-      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
 
-      // This should probably be throttled.
-      // Especially because it triggers during smooth scrolling.
-      // https://lodash.com/docs/4.17.10#throttle
-      // You could do like...
-      // window.addEventListener("scroll", () => {
-      //    _.throttle(doThatStuff, 100);
-      // });
-      // Only not doing it here to keep this Pen dependency-free.
+</script>
 
-      window.addEventListener("scroll", event => {
-        let fromTop = window.scrollY;
 
-        mainNavLinks.forEach((link, index) => {
-          let section = document.getElementById(decodeURI(link.hash).substring(1));
-          let nextSection = null
-          if (mainNavLinks[index + 1]) {
-            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
-          }
-          if (section.offsetTop <= fromTop) {
-            if (nextSection) {
-              if (nextSection.offsetTop > fromTop) {
-                link.classList.add("current");
-              } else {
-                link.classList.remove("current");    
-              }
-            } else {
-              link.classList.add("current");
-            }
-          } else {
-            link.classList.remove("current");
-          }
-        });
-      });
 
-    </script>
+
   </body>
 </html>

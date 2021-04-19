@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://Ryan-ovo.github.io</id>
     <title>Gridea</title>
-    <updated>2021-04-19T10:16:25.513Z</updated>
+    <updated>2021-04-19T11:32:59.582Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://Ryan-ovo.github.io"/>
     <link rel="self" href="https://Ryan-ovo.github.io/atom.xml"/>
@@ -16,7 +16,31 @@
         <link href="https://Ryan-ovo.github.io/post/solution-leetcode1707/">
         </link>
         <updated>2021-04-19T02:48:24.000Z</updated>
-        <content type="html"><![CDATA[<h3 id="题目描述">题目描述</h3>
+        <content type="html"><![CDATA[<p><ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0">题目描述</a>
+<ul>
+<li><a href="#%E6%A0%B7%E4%BE%8B1">样例1</a></li>
+<li><a href="#%E6%A0%B7%E4%BE%8B2">样例2</a></li>
+<li><a href="#%E6%8F%90%E7%A4%BA">提示</a></li>
+</ul>
+</li>
+<li><a href="#%E7%AE%97%E6%B3%951">算法1</a>
+<ul>
+<li><a href="#0-1%E5%AD%97%E5%85%B8%E6%A0%91-%E7%A6%BB%E7%BA%BF%E6%80%9D%E6%83%B3-onlogn">(0-1字典树 + 离线思想)  <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mi>l</mi><mi>o</mi><mi>g</mi><mo>(</mo><mi>n</mi><mo>)</mo><mo>)</mo></mrow><annotation encoding="application/x-tex">O(nlog(n))</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span><span class="mclose">)</span></span></span></span></a></li>
+<li><a href="#java-%E4%BB%A3%E7%A0%81">Java 代码</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</p>
+<h3 id="题目描述">题目描述</h3>
 <p>给你一个由非负整数组成的数组 <code>nums</code> 。另有一个查询数组 <code>queries</code> ，其中 <code>queries[i] = [xi, mi]</code> 。</p>
 <p>第 <code>i</code> 个查询的答案是 <code>xi</code> 和任何 <code>nums</code> 数组中不超过 <code>mi</code> 的元素按位异或<code>（XOR）</code>得到的最大值。换句话说，答案是 <code>max(nums[j] XOR xi)</code> ，其中所有 <code>j</code> 均满足 <code>nums[j] &lt;= mi</code> 。如果 <code>nums</code> 中的所有元素都大于 <code>mi</code>，最终答案就是 <code>-1</code> 。</p>
 <p>返回一个整数数组 <code>answer</code> 作为查询的答案，其中 <code>answer.length == queries.length</code> 且 <code>answer[i]</code> 是第 <code>i</code> 个查询的答案。</p>
@@ -1961,7 +1985,129 @@ int main(){
         <link href="https://Ryan-ovo.github.io/post/ji-chu-suan-fa-dai-ma-mo-ban/">
         </link>
         <updated>2021-04-13T05:13:56.000Z</updated>
-        <content type="html"><![CDATA[<h3 id="排序算法">排序算法</h3>
+        <content type="html"><![CDATA[<p><ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95">排序算法</a>
+<ul>
+<li><a href="#%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F">快速排序</a></li>
+<li><a href="#%E5%BF%AB%E9%80%9F%E9%80%89%E6%8B%A9">快速选择</a></li>
+<li><a href="#%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F">归并排序</a></li>
+<li><a href="#%E6%B1%82%E9%80%86%E5%BA%8F%E5%AF%B9%E6%95%B0%E9%87%8F">求逆序对数量</a></li>
+<li><a href="#%E5%A0%86%E6%8E%92%E5%BA%8F">堆排序</a></li>
+</ul>
+</li>
+<li><a href="#%E7%9F%A9%E9%98%B5">矩阵</a>
+<ul>
+<li><a href="#%E7%9F%A9%E9%98%B5%E6%97%8B%E8%BD%AC">矩阵旋转</a></li>
+</ul>
+</li>
+<li><a href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86">字符串处理</a>
+<ul>
+<li><a href="#%E5%B7%A6%E6%97%8B%E8%BD%ACk%E4%BD%8D">左旋转k位</a></li>
+</ul>
+</li>
+<li><a href="#%E9%AB%98%E7%B2%BE%E5%BA%A6">高精度</a>
+<ul>
+<li><a href="#%E9%AB%98%E7%B2%BE%E5%BA%A6%E5%8A%A0%E6%B3%95">高精度加法</a></li>
+<li><a href="#%E9%AB%98%E7%B2%BE%E5%BA%A6%E4%B9%98%E6%B3%95">高精度乘法</a></li>
+</ul>
+</li>
+<li><a href="#%E9%93%BE%E8%A1%A8">链表</a>
+<ul>
+<li><a href="#%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8">反转链表</a></li>
+<li><a href="#%E4%B8%A4%E4%B8%AA%E4%B8%80%E7%BB%84%E5%8F%8D%E8%BD%AC">两个一组反转</a></li>
+<li><a href="#k%E4%B8%AA%E4%B8%80%E7%BB%84%E5%8F%8D%E8%BD%AC">k个一组反转</a></li>
+<li><a href="#%E6%8E%92%E5%BA%8F%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8">排序两个有序链表</a></li>
+<li><a href="#%E5%90%88%E5%B9%B6k%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8">合并k个有序链表</a></li>
+<li><a href="#%E5%88%A0%E9%99%A4%E9%87%8D%E5%A4%8D%E8%8A%82%E7%82%B9%E4%BF%9D%E7%95%99%E4%B8%80%E4%B8%AA">删除重复节点(保留一个)</a></li>
+<li><a href="#%E5%88%A0%E9%99%A4%E9%87%8D%E5%A4%8D%E8%8A%82%E7%82%B9">删除重复节点</a></li>
+</ul>
+</li>
+<li><a href="#%E6%A0%91">树</a>
+<ul>
+<li><a href="#%E5%B1%82%E5%BA%8F%E9%81%8D%E5%8E%86">层序遍历</a></li>
+<li><a href="#%E5%89%8D%E5%BA%8F%E9%81%8D%E5%8E%86">前序遍历</a></li>
+<li><a href="#%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86">中序遍历</a></li>
+<li><a href="#%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86">后序遍历</a></li>
+<li><a href="#%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91">重建二叉树</a></li>
+<li><a href="#%E6%9C%80%E8%BF%91%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88lca">最近公共祖先LCA</a></li>
+<li><a href="#%E5%88%A4%E6%96%AD%E6%A0%91%E6%98%AF%E5%90%A6%E7%9B%B8%E5%90%8C">判断树是否相同</a></li>
+<li><a href="#%E5%88%A4%E6%96%AD%E6%A0%91%E6%98%AF%E5%90%A6%E5%AF%B9%E7%A7%B0">判断树是否对称</a></li>
+<li><a href="#%E5%88%A4%E6%96%AD%E5%AD%90%E6%A0%91">判断子树</a></li>
+<li><a href="#%E5%88%A4%E6%96%AD%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91">判断平衡二叉树</a></li>
+<li><a href="#%E6%B1%82%E6%9C%80%E5%B0%8F%E6%B7%B1%E5%BA%A6">求最小深度</a></li>
+<li><a href="#%E6%B1%82%E6%9C%80%E5%A4%A7%E6%B7%B1%E5%BA%A6">求最大深度</a></li>
+<li><a href="#%E5%BA%8F%E5%88%97%E5%8C%96%E4%B8%8E%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96">序列化与反序列化</a></li>
+</ul>
+</li>
+<li><a href="#%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97">栈与队列</a>
+<ul>
+<li><a href="#%E5%8D%95%E8%B0%83%E6%A0%88">单调栈</a></li>
+<li><a href="#%E5%8D%95%E8%B0%83%E9%98%9F%E5%88%97">单调队列</a></li>
+</ul>
+</li>
+<li><a href="#%E8%AE%BE%E8%AE%A1%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">设计数据结构</a>
+<ul>
+<li><a href="#%E5%8F%8C%E9%93%BE%E8%A1%A8">双链表</a></li>
+<li><a href="#%E5%BE%AA%E7%8E%AF%E9%98%9F%E5%88%97">循环队列</a></li>
+<li><a href="#%E5%BE%AA%E7%8E%AF%E5%8F%8C%E7%AB%AF%E9%98%9F%E5%88%97">循环双端队列</a></li>
+<li><a href="#%E5%93%88%E5%B8%8C%E9%9B%86%E5%90%88">哈希集合</a></li>
+<li><a href="#%E5%93%88%E5%B8%8C%E6%98%A0%E5%B0%84">哈希映射</a></li>
+<li><a href="#lru">LRU</a></li>
+<li><a href="#lru%E7%BC%93%E5%AD%98">LRU缓存</a></li>
+<li><a href="#tire%E6%A0%91">Tire树</a></li>
+</ul>
+</li>
+<li><a href="#%E6%95%B0%E5%AD%A6">数学</a>
+<ul>
+<li><a href="#%E5%A4%A7%E5%B0%8F%E5%86%99%E8%BD%AC%E6%8D%A2">大小写转换</a></li>
+<li><a href="#%E4%BD%8D%E8%BF%90%E7%AE%97%E6%B1%82%E5%92%8C">位运算求和</a></li>
+<li><a href="#%E5%9F%83%E6%B0%8F%E7%AD%9B%E6%B3%95">埃氏筛法</a></li>
+<li><a href="#%E6%95%B4%E6%95%B0%E6%8B%86%E5%88%86">整数拆分</a></li>
+<li><a href="#%E5%BF%AB%E9%80%9F%E5%B9%82">快速幂</a></li>
+<li><a href="#%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95">欧几里得算法</a></li>
+<li><a href="#%E6%B1%82%E4%B8%89%E8%A7%92%E5%BD%A2%E4%B8%AA%E6%95%B0">求三角形个数</a></li>
+<li><a href="#%E7%BA%A6%E7%91%9F%E5%A4%AB%E7%8E%AF">约瑟夫环</a></li>
+</ul>
+</li>
+<li><a href="#%E5%89%8D%E7%BC%80%E5%92%8C-%E5%B7%AE%E5%88%86">前缀和、差分</a>
+<ul>
+<li><a href="#%E4%B8%80%E7%BB%B4%E5%89%8D%E7%BC%80%E5%92%8C">一维前缀和</a></li>
+<li><a href="#%E4%BA%8C%E7%BB%B4%E5%89%8D%E7%BC%80%E5%92%8C">二维前缀和</a></li>
+<li><a href="#%E4%B8%80%E7%BB%B4%E5%B7%AE%E5%88%86">一维差分</a></li>
+<li><a href="#%E4%BA%8C%E7%BB%B4%E5%B7%AE%E5%88%86">二维差分</a></li>
+</ul>
+</li>
+<li><a href="#%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2">进制转换</a>
+<ul>
+<li><a href="#10%E8%BF%9B%E5%88%B6%E8%BD%AC%E5%85%B6%E4%BB%96%E8%BF%9B%E5%88%B6">10进制转其他进制</a></li>
+<li><a href="#%E5%85%B6%E4%BB%96%E8%BF%9B%E5%88%B6%E8%BD%AC10%E8%BF%9B%E5%88%B6">其他进制转10进制</a></li>
+</ul>
+</li>
+<li><a href="#%E5%B9%B6%E6%9F%A5%E9%9B%86">并查集</a></li>
+<li><a href="#%E6%9C%80%E7%9F%AD%E8%B7%AF">最短路</a>
+<ul>
+<li><a href="#dijkstra">Dijkstra</a></li>
+</ul>
+</li>
+<li><a href="#%E6%95%B0%E7%BB%84%E5%A4%84%E7%90%86">数组处理</a>
+<ul>
+<li><a href="#%E5%8E%9F%E5%9C%B0%E5%93%88%E5%B8%8C%E6%83%85%E5%BD%A21%E6%B1%82%E7%BC%BA%E5%A4%B1%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E6%AD%A3%E6%95%B0">原地哈希情形1：求缺失的第一个正数</a></li>
+<li><a href="#%E5%8E%9F%E5%9C%B0%E5%93%88%E5%B8%8C%E6%83%85%E5%BD%A22%E6%B1%82%E6%95%B0%E7%BB%84%E4%B8%AD%E6%B6%88%E5%A4%B1%E7%9A%84%E6%95%B0%E5%AD%97%E8%8C%83%E5%9B%B41-n">原地哈希情形2：求数组中消失的数字，范围[1, n]</a></li>
+<li><a href="#%E5%8E%9F%E5%9C%B0%E5%93%88%E5%B8%8C%E6%83%85%E5%BD%A23%E6%B1%82%E6%95%B0%E7%BB%84%E4%B8%AD%E9%87%8D%E5%A4%8D%E7%9A%84%E6%95%B0%E5%AD%97%E8%8C%83%E5%9B%B41-n">原地哈希情形3：求数组中重复的数字，范围[1, n]</a></li>
+<li><a href="#%E5%88%A0%E9%99%A4%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E9%A1%B9">删除有序数组中的重复项</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</p>
+<h3 id="排序算法">排序算法</h3>
 <h4 id="快速排序">快速排序</h4>
 <pre><code class="language-c++">// 时间复杂度：O(nlogn)
 void quick_sort(int l, int r){

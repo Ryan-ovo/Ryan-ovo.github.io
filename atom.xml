@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://Ryan-ovo.github.io</id>
     <title>Gridea</title>
-    <updated>2021-04-19T11:39:46.678Z</updated>
+    <updated>2021-04-21T04:08:09.821Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://Ryan-ovo.github.io"/>
     <link rel="self" href="https://Ryan-ovo.github.io/atom.xml"/>
@@ -10,6 +10,174 @@
     <logo>https://Ryan-ovo.github.io/images/avatar.png</logo>
     <icon>https://Ryan-ovo.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[[题解]LeetCode91.解码方法]]></title>
+        <id>https://Ryan-ovo.github.io/post/solution-leetcode91/</id>
+        <link href="https://Ryan-ovo.github.io/post/solution-leetcode91/">
+        </link>
+        <updated>2021-04-21T04:04:52.000Z</updated>
+        <content type="html"><![CDATA[<p><ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0">题目描述</a>
+<ul>
+<li><a href="#%E6%A0%B7%E4%BE%8B1">样例1</a></li>
+<li><a href="#%E6%A0%B7%E4%BE%8B2">样例2</a></li>
+<li><a href="#%E6%A0%B7%E4%BE%8B3">样例3</a></li>
+</ul>
+</li>
+<li><a href="#%E7%AE%97%E6%B3%951">算法1</a>
+<ul>
+<li><a href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-on">(动态规划)  <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span></a></li>
+<li><a href="#java-%E4%BB%A3%E7%A0%81">Java 代码</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</p>
+<h3 id="题目描述">题目描述</h3>
+<p>一条包含字母 <code>A-Z</code> 的消息通过以下映射进行了 编码 ：</p>
+<pre><code>'A' -&gt; 1
+'B' -&gt; 2
+...
+'Z' -&gt; 26
+</code></pre>
+<p>要 解码 已编码的消息，所有数字必须基于上述映射的方法，反向映射回字母（可能有多种方法）。例如，<code>&quot;11106&quot;</code> 可以映射为：</p>
+<p><code>&quot;AAJF&quot;</code> ，将消息分组为 <code>(1 1 10 6)</code><br>
+<code>&quot;KJF&quot;</code> ，将消息分组为 <code>(11 10 6)</code><br>
+注意，消息不能分组为  <code>(1 11 06)</code> ，因为 <code>&quot;06&quot;</code> 不能映射为 <code>&quot;F&quot;</code> ，这是由于 <code>&quot;6&quot;</code> 和 <code>&quot;06&quot;</code> 在映射中并不等价。</p>
+<p>给你一个只含数字的 非空 字符串 <code>s</code> ，请计算并返回 解码 方法的 总数 。</p>
+<p>题目数据保证答案肯定是一个 <code>32</code> 位 的整数。</p>
+<h4 id="样例1">样例1</h4>
+<pre><code>输入：s = &quot;226&quot;
+输出：3
+解释：它可以解码为 &quot;BZ&quot; (2 26), &quot;VF&quot; (22 6), 或者 &quot;BBF&quot; (2 2 6) 。
+</code></pre>
+<h4 id="样例2">样例2</h4>
+<pre><code>输入：s = &quot;0&quot;
+输出：0
+解释：没有字符映射到以 0 开头的数字。
+含有 0 的有效映射是 'J' -&gt; &quot;10&quot; 和 'T'-&gt; &quot;20&quot; 。
+由于没有字符，因此没有有效的方法对此进行解码，因为所有数字都需要映射。
+</code></pre>
+<h4 id="样例3">样例3</h4>
+<pre><code>输入：s = &quot;06&quot;
+输出：0
+解释：&quot;06&quot; 不能映射到 &quot;F&quot; ，因为字符串含有前导 0（&quot;6&quot; 和 &quot;06&quot; 在映射中并不等价）。
+</code></pre>
+<hr>
+<h3 id="算法1">算法1</h3>
+<h4 id="动态规划-on">(动态规划)  <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span></h4>
+<ul>
+<li>状态表示：<code>f[i]</code>表示<code>s</code>的前<code>i</code>个字符的解码方法总数</li>
+<li>状态转移：如果<code>s[i]</code>不为0，单字符可解码，<code>f[i] += f[i-1]</code>；如果<code>s[i-1]</code>存在，且<code>s[i-1]</code>与<code>s[i]</code>组成的数字在<code>[10,26]</code>之间，则<code>f[i] += f[i-2]</code></li>
+<li>初始化：由于<code>f[i-1]</code>和<code>f[i-2]</code>都可能被用到，所以<code>f[0]</code>应该被设置为<code>1</code>，表示空串的解码次数为<code>1</code></li>
+<li>注意
+<ol>
+<li>前导<code>0</code>需要特判</li>
+<li>状态定义为前<code>i</code>个字符时，可以在字符串前加个空格作为哨兵，否则下标需要减一</li>
+</ol>
+</li>
+</ul>
+<h4 id="java-代码">Java 代码</h4>
+<pre><code class="language-java">class Solution {
+    public int numDecodings(String s) {
+        int n = s.length();
+        s = &quot; &quot; + s;
+        // s中前i个字符的解码方法总数
+        int[] f = new int[n+1];
+        if(s.charAt(0) == '0') return 0;
+        f[0] = 1;
+        for(int i = 1; i &lt;= n; i++){
+            if(s.charAt(i) != '0') f[i] += f[i-1];
+            if(i &gt; 1){
+                int num = (s.charAt(i-1) - '0') * 10 + s.charAt(i) - '0';
+                if(num &gt;= 10 &amp;&amp; num &lt;= 26) f[i] += f[i-2];
+            }
+        }
+        return f[n];
+    }
+}
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[[题解]LeetCode91.解码方法]]></title>
+        <id>https://Ryan-ovo.github.io/post/ti-jie-leetcode91jie-ma-fang-fa/</id>
+        <link href="https://Ryan-ovo.github.io/post/ti-jie-leetcode91jie-ma-fang-fa/">
+        </link>
+        <updated>2021-04-21T04:04:52.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="题目描述">题目描述</h3>
+<p>一条包含字母 <code>A-Z</code> 的消息通过以下映射进行了 编码 ：</p>
+<pre><code>'A' -&gt; 1
+'B' -&gt; 2
+...
+'Z' -&gt; 26
+</code></pre>
+<p>要 解码 已编码的消息，所有数字必须基于上述映射的方法，反向映射回字母（可能有多种方法）。例如，<code>&quot;11106&quot;</code> 可以映射为：</p>
+<p><code>&quot;AAJF&quot;</code> ，将消息分组为 <code>(1 1 10 6)</code><br>
+<code>&quot;KJF&quot;</code> ，将消息分组为 <code>(11 10 6)</code><br>
+注意，消息不能分组为  <code>(1 11 06)</code> ，因为 <code>&quot;06&quot;</code> 不能映射为 <code>&quot;F&quot;</code> ，这是由于 <code>&quot;6&quot;</code> 和 <code>&quot;06&quot;</code> 在映射中并不等价。</p>
+<p>给你一个只含数字的 非空 字符串 <code>s</code> ，请计算并返回 解码 方法的 总数 。</p>
+<p>题目数据保证答案肯定是一个 <code>32</code> 位 的整数。</p>
+<h4 id="样例1">样例1</h4>
+<pre><code>输入：s = &quot;226&quot;
+输出：3
+解释：它可以解码为 &quot;BZ&quot; (2 26), &quot;VF&quot; (22 6), 或者 &quot;BBF&quot; (2 2 6) 。
+</code></pre>
+<h4 id="样例2">样例2</h4>
+<pre><code>输入：s = &quot;0&quot;
+输出：0
+解释：没有字符映射到以 0 开头的数字。
+含有 0 的有效映射是 'J' -&gt; &quot;10&quot; 和 'T'-&gt; &quot;20&quot; 。
+由于没有字符，因此没有有效的方法对此进行解码，因为所有数字都需要映射。
+</code></pre>
+<h4 id="样例3">样例3</h4>
+<pre><code>输入：s = &quot;06&quot;
+输出：0
+解释：&quot;06&quot; 不能映射到 &quot;F&quot; ，因为字符串含有前导 0（&quot;6&quot; 和 &quot;06&quot; 在映射中并不等价）。
+</code></pre>
+<hr>
+<h3 id="算法1">算法1</h3>
+<h4 id="动态规划-on">(动态规划)  <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span></h4>
+<ul>
+<li>状态表示：<code>f[i]</code>表示<code>s</code>的前<code>i</code>个字符的解码方法总数</li>
+<li>状态转移：如果<code>s[i]</code>不为0，单字符可解码，<code>f[i] += f[i-1]</code>；如果<code>s[i-1]</code>存在，且<code>s[i-1]</code>与<code>s[i]</code>组成的数字在<code>[10,26]</code>之间，则<code>f[i] += f[i-2]</code></li>
+<li>初始化：由于<code>f[i-1]</code>和<code>f[i-2]</code>都可能被用到，所以<code>f[0]</code>应该被设置为<code>1</code>，表示空串的解码次数为<code>1</code></li>
+<li>注意
+<ol>
+<li>前导<code>0</code>需要特判</li>
+<li>状态定义为前<code>i</code>个字符时，可以在字符串前加个空格作为哨兵，否则下标需要减一</li>
+</ol>
+</li>
+</ul>
+<h4 id="java-代码">Java 代码</h4>
+<pre><code class="language-java">class Solution {
+    public int numDecodings(String s) {
+        int n = s.length();
+        s = &quot; &quot; + s;
+        // s中前i个字符的解码方法总数
+        int[] f = new int[n+1];
+        if(s.charAt(0) == '0') return 0;
+        f[0] = 1;
+        for(int i = 1; i &lt;= n; i++){
+            if(s.charAt(i) != '0') f[i] += f[i-1];
+            if(i &gt; 1){
+                int num = (s.charAt(i-1) - '0') * 10 + s.charAt(i) - '0';
+                if(num &gt;= 10 &amp;&amp; num &lt;= 26) f[i] += f[i-2];
+            }
+        }
+        return f[n];
+    }
+}
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[[题解]LeetCode1707.与数组中元素的最大异或值]]></title>
         <id>https://Ryan-ovo.github.io/post/solution-leetcode1707/</id>
